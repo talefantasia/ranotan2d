@@ -1,0 +1,410 @@
+//
+//  File.cpp
+//  lineloop
+//
+//  Created by Takahashi Hiroyuki on 2013/11/11.
+//
+//
+
+#include "AnimationFactory.h"
+#include "platform/CCFileUtils.h"
+
+#define ANIMATION_CONFIG_FILE_PATH "animation_info.json"
+#define ANIMATION_TYPE_SEQUENCE "sequence"
+#define ANIMATION_TYPE_SPAWN    "spawn"
+#define ANIMATION_TYPE_REPEAT   "repeat"
+
+AnimationFactory* animationFactory = NULL;
+
+AnimationFactory::AnimationFactory()
+{
+    m_root = "";
+}
+
+AnimationFactory::~AnimationFactory()
+{
+    m_root="";
+}
+
+bool AnimationFactory::init()
+{
+    const char *fullPath = cocos2d::CCFileUtils::sharedFileUtils()->fullPathForFilename(ANIMATION_CONFIG_FILE_PATH).c_str();
+    
+	unsigned long length = 0;
+    
+	unsigned char *bytes = CCFileUtils::sharedFileUtils()->getFileData(fullPath, "rb", &length);
+    std::string config((char *)bytes);
+    delete bytes;
+    
+	Json::Reader reader;
+	bool parsingSuccessful = reader.parse( config, m_root );
+	
+	if (!parsingSuccessful) {
+        m_root = "";
+		return false;
+	}
+    
+    return true;
+}
+
+AnimationFactory* AnimationFactory::sharedInstance()
+{
+    if (!animationFactory) {
+        animationFactory = AnimationFactory::create();
+        CC_SAFE_RETAIN(animationFactory);
+    }
+    return animationFactory;
+}
+
+CCActionInterval* AnimationFactory::getActions(const char *key)
+{
+    CCDictionary* dic = NULL;
+    return getActions(key, dic);
+}
+
+CCActionInterval* AnimationFactory::getActions(const char *key, CCDictionary* dic)
+{
+    //Jsonのリストで設定されているCCActionの設定を取得する。
+    Json::Value actionsJson = m_root[key];
+    
+    if ( actionsJson=="" ) {
+        return NULL;
+    }
+    if ( actionsJson.size()==0 ) {
+        return NULL;
+    }
+    return doCreate(actionsJson[0], dic);
+}
+
+
+CCActionInterval* AnimationFactory::getActions(const char *key, CCCallFunc *withEndCallbackFunc)
+{
+    CCActionInterval* actions = getActions(key);
+    if ( actions==NULL ) {
+        return NULL;
+    }
+    return CCSequence::create(actions, withEndCallbackFunc, NULL);
+}
+
+CCActionInterval* AnimationFactory::getActions(const char* key, CCDictionary* dic, CCCallFunc* withEndCallbackFunc)
+{
+    CCActionInterval* actions = getActions(key,dic);
+    if ( actions==NULL ) {
+        return NULL;
+    }
+    return CCSequence::create(actions, withEndCallbackFunc, NULL);
+}
+
+CCActionInterval* AnimationFactory::doCreate(Json::Value &m_json, CCDictionary* dic)
+{
+    if ( m_json=="" ) {
+        return NULL;
+    }
+    if ( m_json.size()==0 ) {
+        return NULL;
+    }
+
+    const char* type = m_json["type"].asCString();
+    
+    if ( strcmp(type, ANIMATION_TYPE_SPAWN)==0 ) {
+        //CCSpawn
+        return createSpawn(m_json,dic);
+    } else if ( strcmp(type, ANIMATION_TYPE_SEQUENCE)==0 ) {
+        //CCSequence
+        return createSequence(m_json,dic);
+    } else if ( strcmp(type, ANIMATION_TYPE_REPEAT)==0 ) {
+        //CCRepert & CCRepertForever
+        return createRepeat(m_json,dic);
+    } else {
+        return createSimpleAction(m_json,dic);
+    }
+}
+
+CCActionInterval* AnimationFactory::createSequence(Json::Value& m_json, CCDictionary* dic)
+{
+    CCActionInterval* action = NULL;
+    Json::Value actions = m_json["actions"];
+    CCArray* ary = CCArray::create();
+    for (unsigned int i=0; i<actions.size(); i++) {
+        ary->addObject(doCreate(actions[i],dic));
+    }
+    action = CCSequence::create(ary);
+    if ( m_json.isMember("easing") ) {
+        action = maskEasing(m_json["easing"].asCString(), m_json["easingrate"].asFloat(), action);
+    }
+    return action;
+}
+
+CCActionInterval* AnimationFactory::createSpawn(Json::Value &m_json, CCDictionary* dic)
+{
+    CCActionInterval* action = NULL;
+    Json::Value actions = m_json["actions"];
+    CCArray* ary = CCArray::create();
+    for (unsigned int i=0; i<actions.size(); i++) {
+        ary->addObject(doCreate(actions[i],dic));
+    }
+    action = CCSpawn::create(ary);
+    if ( m_json.isMember("easing") ) {
+        action = maskEasing(m_json["easing"].asCString(), m_json["easingrate"].asFloat(), action);
+    }
+    return action;
+}
+
+CCActionInterval* AnimationFactory::createRepeat(Json::Value &m_json, CCDictionary* dic)
+{
+    CCActionInterval* action = NULL;
+    Json::Value actions = m_json["actions"];
+    //Repeat回数。　-1の場合はForever
+    int ref = m_json["repert"].asInt();
+    if ( ref==-1 ) {
+        action = CCRepeatForever::create( doCreate(actions[0],dic) );
+    } else {
+        action =CCRepeat::create( doCreate(actions[0], dic), ref);
+    }
+    if ( m_json.isMember("easing") ) {
+        action = maskEasing(m_json["easing"].asCString(), m_json["easingrate"].asFloat(), action);
+    }
+    return action;
+}
+
+CCActionInterval* AnimationFactory::maskEasing(const char *easing, float fRate, CCActionInterval *action)
+{
+    if ( strcmp(easing, "easein")==0 ) {
+        CCLog("CCEaseIn is Attached!");
+        action =  CCEaseIn::create(action, fRate);
+    }
+    if ( strcmp(easing, "easeout")==0 ) {
+        CCLog("CCEaseOut is Attached!");
+        action = CCEaseOut::create(action, fRate);
+    }
+    if ( strcmp(easing, "easeinout")==0 ) {
+        CCLog("CCEaseInOut is Attached!");
+        action = CCEaseInOut::create(action, fRate);
+    }
+    if ( strcmp(easing, "easeelasticin")==0 ) {
+        CCLog("CCEaseElasticIn is Attached!");
+        action = CCEaseElasticIn::create(action, fRate);
+    }
+    if ( strcmp(easing, "easeelasticout")==0 ) {
+        CCLog("CCEaseElasticOut is Attached!");
+        action = CCEaseElasticOut::create(action, fRate);
+    }
+    if ( strcmp(easing, "easeelasticinout")==0 ) {
+        CCLog("CCEaseElasticInOut is Attached!");
+        action = CCEaseElasticInOut::create(action, fRate);
+    }
+    if ( strcmp(easing, "easebouncein")==0 ) {
+        CCLog("CCEaseBounceIn is Attached!");
+        action = CCEaseBounceIn::create(action);
+    }
+    if ( strcmp(easing, "easebounceout")==0 ) {
+        CCLog("CCEaseBounceOut is Attached!");
+        action = CCEaseBounceOut::create(action);
+    }
+    if ( strcmp(easing, "easebounceinout")==0 ) {
+        CCLog("CCEaseBounceInOut is Attached!");
+        action = CCEaseBounceInOut::create(action);
+    }
+    if ( strcmp(easing, "easebackin")==0 ) {
+        CCLog("CCEaseBackIn is Attached!");
+        action = CCEaseBackIn::create(action);
+    }
+    if ( strcmp(easing, "easebackout")==0 ) {
+        CCLog("CCEaseBackOut is Attached!");
+        action = CCEaseBackOut::create(action);
+    }
+    if ( strcmp(easing, "easebackinout")==0 ) {
+        CCLog("CCEaseBackInOut is Attached!");
+        action = CCEaseBackInOut::create(action);
+    }
+    return action;
+}
+
+CCActionInterval* AnimationFactory::createSimpleAction(Json::Value& m_json, CCDictionary* dic)
+{
+    CCActionInterval* action = NULL;
+    if ( strcmp(m_json["type"].asCString(),"move")==0 ) {
+        action = createMove(m_json, dic);
+    }
+    if ( strcmp(m_json["type"].asCString(),"scale")==0 ) {
+        action = createScale(m_json);
+    }
+    if ( strcmp(m_json["type"].asCString(),"rotate")==0 ) {
+        action = createRotate(m_json);
+    }
+    if ( strcmp(m_json["type"].asCString(),"jump")==0 ) {
+        action = createJump(m_json);
+    }
+    if ( strcmp(m_json["type"].asCString(),"blink")==0 ) {
+        action = createBlink(m_json);
+    }
+    if ( strcmp(m_json["type"].asCString(),"fadein")==0 ) {
+        action = createFadein(m_json);
+    }
+    if ( strcmp(m_json["type"].asCString(),"fadeout")==0 ) {
+        action = createFadeout(m_json);
+    }
+    if ( strcmp(m_json["type"].asCString(),"fadeto")==0 ) {
+        action = createFadeout(m_json);
+    }
+    if ( strcmp(m_json["type"].asCString(),"wait")==0 ) {
+        action = createWait(m_json, dic);
+    }
+    
+    if ( m_json.isMember("easing") ) {
+        action = maskEasing(m_json["easing"].asCString(), m_json["easingrate"].asFloat(), action);
+    }
+    return action;
+}
+
+
+CCActionInterval* AnimationFactory::createMove(Json::Value& m_json, CCDictionary* dic)
+{
+    Reference ref = changeReference(m_json["reference"].asCString());
+    float duration = m_json["duration"].asFloat();
+    float posx =m_json["posx"].asFloat();
+    float posy =m_json["posy"].asFloat();
+    
+    if ( dic!=NULL && dic->objectForKey("move_posx")!=NULL ) {
+        CCObject* posObj = dic->objectForKey("move_posx");
+        posx = ((CCFloat*)posObj)->getValue();
+    }
+    if ( dic!=NULL && dic->objectForKey("move_posy")!=NULL ) {
+        CCObject* posObj = dic->objectForKey("move_posy");
+        posy = ((CCFloat*)posObj)->getValue();
+    }
+
+    switch (ref) {
+        case TO:
+            return CCMoveTo::create(duration, ccp(posx, posy));
+            break;
+        case BY:
+            return CCMoveBy::create(duration, ccp(posx, posy));
+            break;
+        default:
+            return NULL;
+            break;
+    }
+}
+
+CCActionInterval* AnimationFactory::createScale(Json::Value& m_json)
+{
+    Reference ref = changeReference(m_json["reference"].asCString());
+    float duration = m_json["duration"].asFloat();
+    float scale =m_json["scale"].asFloat();
+    
+    
+    switch (ref) {
+        case TO:
+            return CCScaleTo::create(duration, scale);
+            break;
+        case BY:
+            return CCScaleBy::create(duration, scale);
+            break;
+        default:
+            return NULL;
+            break;
+    }
+}
+
+CCActionInterval* AnimationFactory::createRotate(Json::Value& m_json)
+{
+    Reference ref = changeReference(m_json["reference"].asCString());
+    
+    float duration = m_json["duration"].asFloat();
+    float deg =m_json["deg"].asFloat();
+    if ( deg!=-1 ) {
+        
+        switch (ref) {
+            case TO:
+                return CCRotateTo::create(duration, deg);
+                break;
+            case BY:
+                return CCRotateBy::create(duration, deg);
+                break;
+            default:
+                return NULL;
+                break;
+        }
+    }
+    float degX =m_json["degx"].asFloat();
+    float degY =m_json["degy"].asFloat();
+    switch (ref) {
+        case TO:
+            return CCRotateTo::create(duration, degX, degY);
+            break;
+        case BY:
+            return CCRotateBy::create(duration, degX, degY);
+            break;
+        default:
+            return NULL;
+            break;
+    }
+    
+}
+
+CCActionInterval* AnimationFactory::createJump(Json::Value& m_json)
+{
+    Reference ref = changeReference(m_json["reference"].asCString());
+    float duration = m_json["duration"].asFloat();
+    float posx =m_json["posx"].asFloat();
+    float posy =m_json["posy"].asFloat();
+    float height =m_json["height"].asFloat();
+    int cnt = m_json["cnt"].asInt();
+    
+    
+    switch (ref) {
+        case TO:
+            return CCJumpTo::create(duration, ccp(posx, posy), height, cnt);
+            break;
+        case BY:
+            return CCJumpBy::create(duration, ccp(posx, posy), height, cnt);
+            break;
+        default:
+            return NULL;
+            break;
+    }
+}
+
+CCActionInterval* AnimationFactory::createBlink(Json::Value& m_json)
+{
+    float duration = m_json["duration"].asFloat();
+    int cnt = m_json["cnt"].asInt();
+    
+    return CCBlink::create(duration, cnt);
+}
+
+CCActionInterval* AnimationFactory::createFadein(Json::Value &m_json)
+{
+    float duration = m_json["duration"].asFloat();
+    return CCFadeIn::create(duration);
+}
+
+CCActionInterval* AnimationFactory::createFadeout(Json::Value &m_json)
+{
+    float duration = m_json["duration"].asFloat();
+    return CCFadeOut::create(duration);
+}
+
+CCActionInterval* AnimationFactory::createFadeto(Json::Value &m_json)
+{
+    float duration = m_json["duration"].asFloat();
+    int opacity = m_json["opacity"].asInt();
+    return CCFadeTo::create(duration, opacity);
+}
+
+
+CCActionInterval* AnimationFactory::createWait(Json::Value &m_json, CCDictionary* dic)
+{
+    float duration = m_json["duration"].asFloat();
+    if ( dic!=NULL && dic->objectForKey("wait_duration")!=NULL ) {
+        CCObject* obj = dic->objectForKey("wait_duration");
+        duration = ((CCFloat*)obj)->getValue();
+    }
+    return CCDelayTime::create(duration);
+}
+
+Reference AnimationFactory::changeReference(const char *reference)
+{
+    return ( strcmp(reference, "to") ) ? TO: BY;
+}

@@ -1,0 +1,295 @@
+//
+//  AsyncSearchItem.cpp
+//  Ranotan2D
+//
+//  Created by Takahashi Hiroyuki on 2014/02/07.
+//
+//
+
+#include "AsyncSearchItem.h"
+#include "ViewItemFactory.h"
+#include "CharactorLayer.h"
+#include "CommonDefine.h"
+#include "ItemViewScene.h"
+
+#define SEARCH_URI  "http://talefantasia.appspot.com/search/%s?keyword=%s"
+
+AsyncSearchItem::AsyncSearchItem()
+{
+    itemList=NULL;
+    index=0;
+    m_pCallfunc=NULL;
+    m_pTarget=NULL;
+    m_pParams=NULL;
+    m_root=NULL;
+}
+
+AsyncSearchItem::~AsyncSearchItem()
+{
+    itemList=NULL;
+    index=0;
+    m_pCallfunc=NULL;
+    m_pTarget=NULL;
+    m_pParams=NULL;
+    m_root=NULL;
+}
+
+bool AsyncSearchItem::init(cocos2d::CCObject *target, SEL_CallFunc callfunc, CCDictionary* params)
+{
+    m_pTarget=target;
+    m_pCallfunc=callfunc;
+    m_pParams=params;
+    doSync();
+    return true;
+}
+
+AsyncSearchItem* AsyncSearchItem::create(CCObject* target, SEL_CallFunc callfunc, CCDictionary* params)
+{
+    AsyncSearchItem* pRet = new AsyncSearchItem();
+    if (pRet && pRet->init(target, callfunc, params)) {
+        pRet->retain();
+        pRet->autorelease();
+        return pRet;
+    } else {
+        delete pRet;
+        return NULL;
+    }
+
+}
+
+void AsyncSearchItem::doSync()
+{
+        
+    CCLog("Start Search Item");
+    CCString* type = dynamic_cast<CCString*>(m_pParams->objectForKey("type"));
+    CCString* value = dynamic_cast<CCString*>(m_pParams->objectForKey("value"));
+    if ( type==NULL || value==NULL ) {
+        return;
+    }
+    
+    
+    
+    CCString* url = CCString::createWithFormat(SEARCH_URI, type->getCString(), UrlEncode(value->m_sString).c_str());
+    
+    CCLOG("Serrch URL : %s", url->getCString());
+    
+    CCHttpRequest *request = new CCHttpRequest();
+    request->setUrl(url->getCString());
+    request->setRequestType(CCHttpRequest::kHttpGet);
+    request->setResponseCallback(this, httpresponse_selector(AsyncSearchItem::onHttpRequestCompleted)); // コールバック
+    CCHttpClient::getInstance()->send(request);
+    CCHttpClient::getInstance()->setTimeoutForRead(60);
+    request->release();
+
+}
+
+void AsyncSearchItem::onHttpRequestCompleted(cocos2d::CCNode *sender, void *data)
+{
+    CCHttpResponse *response = (CCHttpResponse *) data;
+    if (!response->isSucceed()) {
+        doBeforeCancelSyncProcess();
+        return;
+    }
+//    sendMessage("Server Response Success. ( Process 1/4 )", false);
+//    sendMessage("Response Analysis Start. ( Process 2/4 )", false);
+    
+    std::vector<char> *buffer = response->getResponseData();
+    
+    std::string config(buffer->begin(), buffer->end() );
+    CCLOG("%s", config.c_str());
+
+    ViewItemFactory::sharedInstance()->updateSearchList(config);
+
+    //リストをとる
+    itemList = ViewItemFactory::sharedInstance()->createSearchList();
+    if (itemList!=NULL) itemList->retain();
+    CCNotificationCenter::sharedNotificationCenter()->postNotification(NOTIFICATION_CHARACTOR_SUBEFFECT_SEARCH_IMAGE);
+    
+    doImageSync();
+    
+    
+}
+
+void AsyncSearchItem::doBeforeCloseSyncProcess()
+{
+    //台詞チェンジ
+    CCNotificationCenter::sharedNotificationCenter()->postNotification(NOTIFICATION_CHARACTOR_SUBEFFECT_SEARCH_COMPLETE);
+    //一秒待つ。
+    CCActionInterval* delay = CCDelayTime::create(3.0);
+    CCCallFunc* func = CCCallFunc::create(this, callfunc_selector(AsyncSearchItem::doCloseSyncProcess));
+    runAction(CCSequence::create(delay, func, NULL));
+}
+
+void AsyncSearchItem::doCloseSyncProcess()
+{
+    CCNotificationCenter::sharedNotificationCenter()->postNotification(NOTIFICATION_CHARACTOR_SUBEFFECT_NONE);
+    //CallBack
+    if ( m_pTarget && m_pCallfunc ) {
+        (m_pTarget->*m_pCallfunc)();
+    }
+    removeFromParentAndCleanup(true);
+}
+
+void AsyncSearchItem::doBeforeCancelSyncProcess()
+{
+    //台詞チェンジ
+    CCNotificationCenter::sharedNotificationCenter()->postNotification(NOTIFICATION_CHARACTOR_SUBEFFECT_SEARCH_CANCEL);
+    //一秒待つ。
+    CCActionInterval* delay = CCDelayTime::create(3.0);
+    CCCallFunc* func = CCCallFunc::create(this, callfunc_selector(AsyncSearchItem::doCancelSyncProcess));
+    runAction(CCSequence::create(delay, func, NULL));
+}
+
+void AsyncSearchItem::doCancelSyncProcess()
+{
+    CCNotificationCenter::sharedNotificationCenter()->postNotification(NOTIFICATION_CHARACTOR_SUBEFFECT_NONE);
+    removeFromParentAndCleanup(true);
+}
+
+void AsyncSearchItem::doImageSync()
+{
+    
+    if ( itemList==NULL ) {
+        doBeforeCloseSyncProcess();
+        return;
+    }
+    if ( itemList->count()==0 ) {
+        doBeforeCloseSyncProcess();
+        return;
+    }
+    if ( index>=itemList->count() ) {
+        doBeforeCloseSyncProcess();
+        return;
+    }
+    
+    
+    process1();
+    
+}
+
+
+void AsyncSearchItem::process1()
+{
+    ViewItem* item = (ViewItem*)itemList->objectAtIndex(index);
+    CCString* str = CCString::createWithFormat("%d / %d complete", index, itemList->count());
+    
+    if (!item->getImgLarge()) {
+        CCLog("index %d is blank", index);
+        index++;
+        doImageSync();
+        return;
+    }
+    CCHttpRequest *request = new CCHttpRequest();
+    request->setUrl(item->getImgLarge()->getCString());
+    request->setRequestType(CCHttpRequest::kHttpGet);
+    request->setResponseCallback(this, httpresponse_selector(AsyncSearchItem::process1Complete)); // コールバック
+    CCHttpClient::getInstance()->setTimeoutForRead(10);
+    CCHttpClient::getInstance()->send(request);
+    request->release();
+    CCLog("request Large Image %s", item->getImgLarge()->getCString());
+}
+
+void AsyncSearchItem::process1Complete(cocos2d::CCNode *sender, void *data)
+{
+    CCHttpResponse *response = (CCHttpResponse *) data;
+    if (!response->isSucceed()) {
+        index++;
+        doImageSync();
+        return;
+    }
+    
+    std::vector<char> *buffer = response->getResponseData();
+    
+    if ( buffer==NULL || buffer->size()==0 ) {
+        index++;
+        doImageSync();
+        return;
+    }
+    
+//    std::string imgBuffer(buffer->begin(), buffer->end());
+    ViewItem* item = (ViewItem*)itemList->objectAtIndex(index);
+    
+    CCImage *image = new CCImage();
+    image->initWithImageData(&(buffer->front()), buffer->size());
+    
+    image->saveToFile((UserDataDefault::sharedInstance()->getNowTargetDirPath() + "L_" + item->getItemid()->getCString()).c_str());
+    
+    process2();
+}
+
+void AsyncSearchItem::process2()
+{
+    ViewItem* item = (ViewItem*)itemList->objectAtIndex(index);
+    
+    if (!item->getImgLarge()) {
+        CCLog("index %d is blank", index);
+        index++;
+        doImageSync();
+        return;
+    }
+    CCHttpRequest *request = new CCHttpRequest();
+    request->setUrl(item->getImgSmall()->getCString());
+    request->setRequestType(CCHttpRequest::kHttpGet);
+    request->setResponseCallback(this, httpresponse_selector(AsyncSearchItem::process2Complete)); // コールバック
+    CCHttpClient::getInstance()->setTimeoutForRead(10);
+    CCHttpClient::getInstance()->send(request);
+    request->release();
+    CCLog("request Small Image %s", item->getImgSmall()->getCString());
+}
+
+void AsyncSearchItem::process2Complete(cocos2d::CCNode *sender, void *data)
+{
+    CCHttpResponse *response = (CCHttpResponse *) data;
+    if (!response->isSucceed()) {
+        index++;
+        doImageSync();
+        return;
+    }
+    
+    std::vector<char> *buffer = response->getResponseData();
+    
+    if ( buffer==NULL || buffer->size()==0 ) {
+        index++;
+        doImageSync();
+        return;
+    }
+    
+//    std::string imgBuffer(buffer->begin(), buffer->end());
+    ViewItem* item = (ViewItem*)itemList->objectAtIndex(index);
+    
+    CCImage *image = new CCImage();
+    image->initWithImageData(&(buffer->front()), buffer->size());
+    
+    image->saveToFile((UserDataDefault::sharedInstance()->getNowTargetDirPath() + "S_" + item->getItemid()->getCString()).c_str());
+    index++;
+    doImageSync();
+}
+
+std::string AsyncSearchItem::UrlEncode( const std::string & str )
+{
+    std::string retStr;
+    
+    std::string::size_type length = str.size();
+    for ( std::string::size_type i = 0 ; i < length ; i++ )
+    {
+        if (( '0' <= str[ i ] && str[ i ] <= '9' ) ||
+            ( 'a' <= str[ i ] && str[ i ] <= 'z' ) ||
+            ( 'A' <= str[ i ] && str[ i ] <= 'Z' ) ||
+            str[ i ] == '-'   || str[ i ] == '.'   ||
+            str[ i ] == '_'   || str[ i ] == '~' )
+        {
+            // 数字/アルファベット/[-][.][_][~]はそのまま
+            retStr += str[ i ];
+        }
+        else
+        {
+            retStr += '%';
+            char tmp[ 3 ];
+            snprintf( tmp, 3, "%X", static_cast< unsigned char >( str[ i ] ));
+            retStr += tmp;
+        }
+    }
+    
+    return retStr;
+}
+

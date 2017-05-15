@@ -1,0 +1,287 @@
+//
+//  ViewItemFactory.cpp
+//  Ranotan2D
+//
+//  Created by Takahashi Hiroyuki on 2013/12/10.
+//
+//
+
+#include "ViewItemFactory.h"
+#include "UserDataDefault.h"
+#include <iostream>
+#include <algorithm>
+#include <string>
+
+#define KEY_ALIVE_ITEMLIST  "ALIVE_ITEMLIST"
+#define KEY_ALIVE_SEARCHLIST  "ALIVE_SEARCHLIST"
+#define KEY_ALIVE_IMAGEDIC  "ALIVE_IMAGE_DIC"
+
+ViewItemFactory* viewItemFactory = NULL;
+
+ViewItemFactory::ViewItemFactory()
+{
+    mainDic = NULL;
+    m_root=NULL;
+    tempMainDic=NULL;
+}
+
+ViewItemFactory::~ViewItemFactory()
+{
+    mainDic=NULL;
+    m_root=NULL;
+    tempMainDic=NULL;
+}
+
+ViewItemFactory* ViewItemFactory::sharedInstance()
+{
+    if (!viewItemFactory) {
+        viewItemFactory = ViewItemFactory::create();
+        CC_SAFE_RETAIN(viewItemFactory);
+    }
+    return viewItemFactory;
+
+}
+
+bool ViewItemFactory::init()
+{
+    //存在するかどうか確認
+    CCDictionary* dic = NULL;
+    
+    std::string path = UserDataDefault::sharedInstance()->getNowTargetSaveFilePath();
+    
+    if(CCFileUtils::sharedFileUtils()->isFileExist(path)){
+        CCLOG("File Found %s", path.c_str());
+        dic = CCDictionary::createWithContentsOfFile(path.c_str());
+    }else{
+        CCLOG("File Not Found %s", path.c_str());
+        dic = CCDictionary::create();
+    }
+    setMainDic(dic);
+    setTempMainDic(CCDictionary::create());
+    
+    std::string config = getItemList();
+
+    if ( config=="" ) {
+        CCLOG("getItemList is blank");
+        m_root = NULL;
+        return true;
+    }
+    
+    Json::Reader reader;
+	bool parsingSuccessful = reader.parse( config, m_root );
+	
+	if (!parsingSuccessful) {
+        m_root = NULL;
+	}
+
+    
+    return true;
+}
+
+std::string ViewItemFactory::getItemList()
+{
+    CCString* str = (CCString*)mainDic->objectForKey(KEY_ALIVE_ITEMLIST);
+    if ( str==NULL ) {
+        return "";
+    }
+    return str->m_sString;
+}
+
+CCArray* ViewItemFactory::createSearchList()
+{
+    Json::Value m_root_search = NULL;
+    CCString* str = (CCString*)mainDic->objectForKey(KEY_ALIVE_SEARCHLIST);
+    if ( str==NULL ) {
+        return CCArray::create();
+    }
+    std::string config = str->m_sString;
+    
+    Json::Reader reader;
+	bool parsingSuccessful = reader.parse( config, m_root_search );
+    if ( !parsingSuccessful ) return CCArray::create();
+    if ( m_root_search==NULL ) return CCArray::create();
+    CCArray* ary = createItemList(m_root_search);
+    return ary==NULL ? CCArray::create(): ary;
+}
+
+std::string ViewItemFactory::getItemListFromTemp()
+{
+    CCString* str = (CCString*)tempMainDic->objectForKey(KEY_ALIVE_ITEMLIST);
+//    CCString* str = (CCString*)mainDic->objectForKey(KEY_ALIVE_ITEMLIST);
+    if ( str==NULL ) {
+        return "";
+    }
+    return str->m_sString;
+}
+
+CCString* ViewItemFactory::getImageItem(CCString *itemId, CCString* imageType)
+{
+    CCDictionary* imageDic = (CCDictionary*)mainDic->objectForKey(KEY_ALIVE_IMAGEDIC);
+    if ( imageDic==NULL ) {
+        return NULL;
+    }
+    CCString* key = CCString::createWithFormat("image_%s_%s", itemId->getCString(), imageType->getCString());
+    CCString* str =(CCString*)imageDic->objectForKey(key->getCString());
+    if ( str==NULL ) {
+        return NULL;
+    }
+    return str;
+}
+
+CCArray* ViewItemFactory::getItemListForJson()
+{
+    return createItemList(m_root);
+}
+
+CCArray* ViewItemFactory::getItemListForJsonOrderbyReleaseDate()
+{
+    CCArray* orgAry = getItemListForJson();
+    CCArray* resultAry = CCArray::create();
+    if ( orgAry==NULL ) {
+        return NULL;
+    }
+    for (int i=0; i<orgAry->count()-1; i++) {
+        doComparate(resultAry, (ViewItem*)orgAry->objectAtIndex(i));
+    }
+    return resultAry;
+}
+
+CCArray* ViewItemFactory::doComparate(cocos2d::CCArray *ary, ViewItem *item)
+{
+    CCArray* result = CCArray::create();
+    if ( ary->count()==0 ) {
+        ary->addObject(item);
+        return result;
+    }
+    int idx = -1;
+    for (int i=0; i<ary->count()-1; i++) {
+        ViewItem* item2 = (ViewItem*)ary->objectAtIndex(i);
+        const std::string s1(item->getReleaseDate()->getCString());
+        const std::string s2(item2->getReleaseDate()->getCString());
+        std::vector<char> v1(s1.begin(), s1.end());
+        std::vector<char> v2(s2.begin(), s2.end());
+        replace(v1.begin(), v1.end(), '-', '0');
+        replace(v2.begin(), v2.end(), '-', '0');
+        const std::string s11(v1.begin(), v1.end());
+        const std::string s21(v2.begin(), v2.end());
+        int date1 = CCString::create(s11.c_str())->intValue();
+        int date2 = CCString::create(s21.c_str())->intValue();
+        if ( date1<=date2 ) {
+            idx=i;
+            break;
+        }
+        
+    }
+    if ( idx==-1 ) {
+        ary->addObject(item);
+    } else {
+        ary->insertObject(item, idx);
+    }
+    return ary;
+}
+
+CCArray* ViewItemFactory::getItemListForJsonFromTemp()
+{
+    std::string config = getItemListFromTemp();
+    if ( config=="" ) {
+        return NULL;
+    }
+    Json::Reader reader;
+    Json::Value m_root_temp=NULL;
+    
+	bool parsingSuccessful = reader.parse( config, m_root_temp );
+	
+	if (!parsingSuccessful) {
+        return NULL;
+	}
+    return createItemList(m_root_temp);
+}
+
+CCArray* ViewItemFactory::createItemList(Json::Value base)
+{
+    //Jsonのリストで設定されているCCActionの設定を取得する。
+    if ( base==NULL ) {
+        return NULL;
+    }
+    
+    Json::Value actionsJson = base["itemList"];
+    
+    if ( actionsJson==NULL ) {
+        CCLOG("json is NULL");
+        return NULL;
+    }
+    if ( actionsJson.size()==0 ) {
+        CCLOG("json is Size Zero");
+        return NULL;
+    }
+    CCArray* ary = CCArray::create();
+    for (unsigned int i=0; i<actionsJson.size(); i++) {
+        ViewItem* item = createViewItem(actionsJson[i]);
+        ary->addObject(item);
+    }
+    return ary;
+}
+
+ViewItem* ViewItemFactory::createViewItem(Json::Value &m_json)
+{
+    ViewItem* item = new ViewItem();
+    item->setItemid(CCString::create(m_json["itemId"].asCString()));
+    item->setAuther(CCString::create(m_json["author"].asCString()));
+    item->setCreator(CCString::create(m_json["creator"].asCString()));
+    item->setTitle(CCString::create(m_json["makedTitle"].asCString()));
+    item->setLabel(CCString::create(m_json["makedLabel"].asCString()));
+    item->setReleaseDate(CCString::create(m_json["releaseDate"].asCString()));
+    item->setPrice(CCString::create(m_json["price"].asCString()));
+    item->setContents(CCString::create(m_json["contents"].asCString()));
+    Json::Value imgLarge =m_json["largeImage"];
+    item->setImgLarge(CCString::create(imgLarge["imageUrl"].asCString()));
+    Json::Value imgMedium =m_json["mediumImage"];
+    item->setImgSmall(CCString::create(imgMedium["imageUrl"].asCString()));
+    item->setUrl(CCString::create(m_json["rakutenPageUrl1"].asCString()));
+
+    return item;
+}
+
+
+void ViewItemFactory::updateItemList(std::string itemList)
+{
+    tempMainDic->setObject(CCString::create(itemList), KEY_ALIVE_ITEMLIST);
+}
+
+void ViewItemFactory::updateSearchList(std::string itemList)
+{
+    mainDic->setObject(CCString::create(itemList), KEY_ALIVE_SEARCHLIST);
+}
+
+
+void ViewItemFactory::updateImageItem(CCString *item, CCString *itemId, CCString *imageType)
+{
+    CCDictionary* imageDic = (CCDictionary*)tempMainDic->objectForKey(KEY_ALIVE_IMAGEDIC);
+    if ( imageDic==NULL ) {
+        imageDic = CCDictionary::create();
+    }
+    CCString* key = CCString::createWithFormat("image_%s_%s", itemId->getCString(), imageType->getCString());
+    imageDic->setObject(item, key->getCString());
+    tempMainDic->setObject(imageDic, KEY_ALIVE_IMAGEDIC);
+    CCString* str = (CCString*)imageDic->objectForKey("image_475804516X_l");
+    
+    CCLOG("updateImageItem is Saved %s", key->getCString());
+
+}
+
+void ViewItemFactory::saveDataForFile()
+{
+    CCLog("Save2");
+    if (tempMainDic->writeToFile(UserDataDefault::sharedInstance()->getNowTargetSaveFilePath().c_str()) ) {
+        CCLOG("ViewItemFactory is Saved %s", UserDataDefault::sharedInstance()->getNowTargetSaveFilePath().c_str());
+    }
+}
+
+void ViewItemFactory::updateCommit()
+{
+    CCLog("Save1");
+    saveDataForFile();
+    init();
+    
+}
+

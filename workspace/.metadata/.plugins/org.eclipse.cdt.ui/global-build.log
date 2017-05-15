@@ -1,0 +1,1142 @@
+
+**** Build of configuration Default for project Ranotan2D ****
+
+bash /workspace/Ranotan2D-V2/Ranotan2D/proj.android/build_native.sh all 
+NDK_ROOT = /workspace/Ranotan2D-V2/android-ndk-r8e
+COCOS2DX_ROOT = /workspace/Ranotan2D-V2/cocos2dx/cocos2d-x-2.1.5
+APP_ROOT = /workspace/Ranotan2D-V2/Ranotan2D/proj.android/..
+APP_ANDROID_ROOT = /workspace/Ranotan2D-V2/Ranotan2D/proj.android
+Using prebuilt externals
+make: Entering directory `/workspace/Ranotan2D-V2/Ranotan2D/proj.android'
+Compile++ thumb  : cocos2dcpp_shared <= main.cpp
+Compile++ thumb  : cocos2dcpp_shared <= AppDelegate.cpp
+In file included from jni/../../Classes/AppDelegate.cpp:13:0:
+jni/../../Classes/Main/ItemViewScene.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/AppDelegate.cpp:13:0:
+jni/../../Classes/Main/ItemViewScene.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/AppDelegate.cpp:13:0:
+jni/../../Classes/Main/ItemViewScene.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/AppDelegate.cpp:13:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:14:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/AppDelegate.cpp:13:
+jni/../../Classes/Main/Charactor/Book.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Book.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/AppDelegate.cpp:13:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:15:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/AppDelegate.cpp:13:
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/AppDelegate.cpp:13:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:16:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/AppDelegate.cpp:13:
+jni/../../Classes/Main/Charactor/Charactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Charactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/AppDelegate.cpp:14:0:
+jni/../../Classes/Notification/NotificationFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Notification/NotificationFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Notification/NotificationFactory.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Notification/NotificationFactory.h:14:0,
+                 from jni/../../Classes/AppDelegate.cpp:14:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/AppDelegate.cpp:16:0:
+jni/../../Classes/Main/Charactor/SerifLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/SerifLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= AsyncImageCleanup.cpp
+In file included from jni/../../Classes/Async/AsyncImageCleanup.cpp:9:0:
+jni/../../Classes/Async/AsyncImageCleanup.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncImageCleanup.cpp:9:0:
+jni/../../Classes/Async/AsyncImageCleanup.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= AsyncImageItem.cpp
+In file included from jni/../../Classes/Async/AsyncImageItem.cpp:9:0:
+jni/../../Classes/Async/AsyncImageItem.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncImageItem.cpp:9:0:
+jni/../../Classes/Async/AsyncImageItem.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncImageItem.cpp:10:0:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncImageItem.cpp:11:0:
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.h:15:0,
+                 from jni/../../Classes/Async/AsyncImageItem.cpp:11:
+jni/../../Classes/Async/AsyncItemList.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/AsyncItemList.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncImageItem.cpp:11:0:
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= AsyncItemList.cpp
+In file included from jni/../../Classes/Async/AsyncItemList.cpp:9:0:
+jni/../../Classes/Async/AsyncItemList.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncItemList.cpp:9:0:
+jni/../../Classes/Async/AsyncItemList.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncItemList.cpp:10:0:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncItemList.cpp:11:0:
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.h:16:0,
+                 from jni/../../Classes/Async/AsyncItemList.cpp:11:
+jni/../../Classes/Async/AsyncImageItem.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/AsyncImageItem.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncItemList.cpp:12:0:
+jni/../../Classes/Common/CommonDefine.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Common/CommonDefine.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= AsyncSearchItem.cpp
+In file included from jni/../../Classes/Async/AsyncSearchItem.cpp:9:0:
+jni/../../Classes/Async/AsyncSearchItem.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncSearchItem.cpp:9:0:
+jni/../../Classes/Async/AsyncSearchItem.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncSearchItem.cpp:10:0:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncSearchItem.cpp:11:0:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:14:0,
+                 from jni/../../Classes/Async/AsyncSearchItem.cpp:11:
+jni/../../Classes/Main/Charactor/Book.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Book.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncSearchItem.cpp:11:0:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:15:0,
+                 from jni/../../Classes/Async/AsyncSearchItem.cpp:11:
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncSearchItem.cpp:11:0:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:16:0,
+                 from jni/../../Classes/Async/AsyncSearchItem.cpp:11:
+jni/../../Classes/Main/Charactor/Charactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Charactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncSearchItem.cpp:12:0:
+jni/../../Classes/Common/CommonDefine.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Common/CommonDefine.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncSearchItem.cpp:13:0:
+jni/../../Classes/Main/ItemViewScene.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncSearchItem.cpp:13:0:
+jni/../../Classes/Main/ItemViewScene.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/AsyncSearchItem.cpp: In constructor 'AsyncSearchItem::AsyncSearchItem()':
+jni/../../Classes/Async/AsyncSearchItem.cpp:24:12: warning: passing NULL to non-pointer argument 1 of 'Json::Value::Value(Json::Value::Int)' [-Wconversion-null]
+jni/../../Classes/Async/AsyncSearchItem.cpp: In destructor 'virtual AsyncSearchItem::~AsyncSearchItem()':
+jni/../../Classes/Async/AsyncSearchItem.cpp:34:12: warning: passing NULL to non-pointer argument 1 of 'Json::Value::Value(Json::Value::Int)' [-Wconversion-null]
+Compile++ thumb  : cocos2dcpp_shared <= ViewItemAsyncProcesser.cpp
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:9:0:
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:9:0:
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:9:0:
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.h:15:0,
+                 from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:9:
+jni/../../Classes/Async/AsyncItemList.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/AsyncItemList.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:9:0:
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.h:16:0,
+                 from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:9:
+jni/../../Classes/Async/AsyncImageItem.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/AsyncImageItem.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:10:0:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:11:0:
+jni/../../Classes/Main/ItemViewScene.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:11:0:
+jni/../../Classes/Main/ItemViewScene.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:11:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:14:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:11:
+jni/../../Classes/Main/Charactor/Book.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Book.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:11:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:15:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:11:
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:11:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:16:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:11:
+jni/../../Classes/Main/Charactor/Charactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Charactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:12:0:
+jni/../../Classes/Utility/UserItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/UserItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/UserItemFactory.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= CommonButton.cpp
+Compile++ thumb  : cocos2dcpp_shared <= DialogLayer.cpp
+In file included from jni/../../Classes/Common/DialogLayer.cpp:11:0:
+jni/../../Classes/Common/CommonDefine.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Common/CommonDefine.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Common/DialogLayer.cpp:13:0:
+jni/../../Classes/Async/AsyncSearchItem.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/AsyncSearchItem.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Common/DialogLayer.cpp:14:0:
+jni/../../Classes/Main/Charactor/SerifLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/SerifLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Common/DialogLayer.cpp:15:0:
+jni/../../Classes/Main/Charactor/SubCharactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/SubCharactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Common/DialogLayer.cpp:16:0:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Common/DialogLayer.cpp:17:0:
+jni/../../Classes/Main/ItemViewScene.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Common/DialogLayer.cpp:17:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:14:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Common/DialogLayer.cpp:17:
+jni/../../Classes/Main/Charactor/Book.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Book.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Common/DialogLayer.cpp:17:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:15:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Common/DialogLayer.cpp:17:
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Common/DialogLayer.cpp:17:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:16:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Common/DialogLayer.cpp:17:
+jni/../../Classes/Main/Charactor/Charactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Charactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Common/DialogLayer.cpp:18:0:
+jni/../../Classes/Utility/CreatorsDataFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/CreatorsDataFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= UserDataDefault.cpp
+Compile++ thumb  : cocos2dcpp_shared <= json_reader.cpp
+Compile++ thumb  : cocos2dcpp_shared <= json_value.cpp
+Compile++ thumb  : cocos2dcpp_shared <= json_writer.cpp
+Compile++ thumb  : cocos2dcpp_shared <= CCAsyncSprite.cpp
+In file included from jni/../../Classes/Main/CCAsyncSprite.cpp:9:0:
+jni/../../Classes/Main/CCAsyncSprite.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/CCAsyncSprite.cpp:9:0:
+jni/../../Classes/Main/CCAsyncSprite.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= Book.cpp
+In file included from jni/../../Classes/Main/Charactor/Book.cpp:9:0:
+jni/../../Classes/Main/Charactor/Book.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/Book.cpp:9:0:
+jni/../../Classes/Main/Charactor/Book.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= Charactor.cpp
+In file included from jni/../../Classes/Main/Charactor/Charactor.cpp:9:0:
+jni/../../Classes/Main/Charactor/Charactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/Charactor.cpp:9:0:
+jni/../../Classes/Main/Charactor/Charactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/Charactor.cpp:10:0:
+jni/../../Classes/Main/Charactor/Book.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Book.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/Charactor.cpp:11:0:
+jni/../../Classes/Common/CommonDefine.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Common/CommonDefine.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/Charactor.cpp:12:0:
+jni/../../Classes/Main/Charactor/Effect/ConvergenceEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Effect/ConvergenceEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= CharactorLayer.cpp
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:9:0:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:9:0:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:9:0:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:14:0,
+                 from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:9:
+jni/../../Classes/Main/Charactor/Book.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Book.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:9:0:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:15:0,
+                 from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:9:
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:9:0:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:16:0,
+                 from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:9:
+jni/../../Classes/Main/Charactor/Charactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Charactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:10:0:
+jni/../../Classes/Main/Charactor/Effect/StarFlyEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Effect/StarFlyEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:11:0:
+jni/../../Classes/Main/Charactor/SubCharactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/SubCharactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:12:0:
+jni/../../Classes/Common/CommonDefine.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Common/CommonDefine.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:13:0:
+jni/../../Classes/Main/Charactor/Effect/ConvergenceEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Effect/ConvergenceEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= ConvergenceEffect.cpp
+In file included from jni/../../Classes/Main/Charactor/Effect/ConvergenceEffect.cpp:9:0:
+jni/../../Classes/Main/Charactor/Effect/ConvergenceEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/Effect/ConvergenceEffect.cpp:9:0:
+jni/../../Classes/Main/Charactor/Effect/ConvergenceEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/Effect/ConvergenceEffect.cpp:10:0:
+jni/../../Classes/Common/CommonDefine.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Common/CommonDefine.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= MagicCircleEffect.cpp
+In file included from jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.cpp:9:0:
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.cpp:9:0:
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= StarFlyEffect.cpp
+In file included from jni/../../Classes/Main/Charactor/Effect/StarFlyEffect.cpp:9:0:
+jni/../../Classes/Main/Charactor/Effect/StarFlyEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/Effect/StarFlyEffect.cpp:9:0:
+jni/../../Classes/Main/Charactor/Effect/StarFlyEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= SerifLayer.cpp
+In file included from jni/../../Classes/Main/Charactor/SerifLayer.cpp:9:0:
+jni/../../Classes/Main/Charactor/SerifLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/SerifLayer.cpp:9:0:
+jni/../../Classes/Main/Charactor/SerifLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/SerifLayer.cpp:10:0:
+jni/../../Classes/Common/CommonDefine.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Common/CommonDefine.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= SubCharactor.cpp
+In file included from jni/../../Classes/Main/Charactor/SubCharactor.cpp:9:0:
+jni/../../Classes/Main/Charactor/SubCharactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/SubCharactor.cpp:9:0:
+jni/../../Classes/Main/Charactor/SubCharactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/SubCharactor.cpp:10:0:
+jni/../../Classes/Common/CommonDefine.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Common/CommonDefine.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= ItemViewScene.cpp
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:9:0:
+jni/../../Classes/Main/ItemViewScene.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:9:0:
+jni/../../Classes/Main/ItemViewScene.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:9:0:
+jni/../../Classes/Main/ItemViewScene.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:9:0:
+jni/../../Classes/Main/ItemViewScene.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Main/ItemViewScene.cpp:9:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:14:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Main/ItemViewScene.cpp:9:
+jni/../../Classes/Main/Charactor/Book.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Book.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Main/ItemViewScene.cpp:9:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:15:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Main/ItemViewScene.cpp:9:
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Main/ItemViewScene.cpp:9:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:16:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Main/ItemViewScene.cpp:9:
+jni/../../Classes/Main/Charactor/Charactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Charactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:10:0:
+jni/../../Classes/Common/CommonDefine.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Common/CommonDefine.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:12:0:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:13:0:
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.h:15:0,
+                 from jni/../../Classes/Main/ItemViewScene.cpp:13:
+jni/../../Classes/Async/AsyncItemList.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/AsyncItemList.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:13:0:
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.h:16:0,
+                 from jni/../../Classes/Main/ItemViewScene.cpp:13:
+jni/../../Classes/Async/AsyncImageItem.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/AsyncImageItem.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:16:0:
+jni/../../Classes/Utility/UserItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/UserItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/UserItemFactory.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:17:0:
+jni/../../Classes/Utility/CreatorsDataFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/CreatorsDataFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:18:0:
+jni/../../Classes/Main/Layer/ItemListTableLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Layer/ItemListTableLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Layer/ItemListTableLayer.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:19:0:
+jni/../../Classes/Main/Layer/BookMarkTableLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Layer/BookMarkTableLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Layer/BookMarkTableLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:20:0:
+jni/../../Classes/Notification/NotificationFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Notification/NotificationFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Notification/NotificationFactory.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:22:0:
+jni/../../Classes/Utility/TextureFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/TextureFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:23:0:
+jni/../../Classes/Main/Charactor/SerifLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/SerifLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= BookMarkTableLayer.cpp
+In file included from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:0:
+jni/../../Classes/Main/Layer/BookMarkTableLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:0:
+jni/../../Classes/Main/Layer/BookMarkTableLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:0:
+jni/../../Classes/Main/Layer/BookMarkTableLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/BookMarkTableLayer.h:14:0,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:
+jni/../../Classes/Main/ItemViewScene.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/BookMarkTableLayer.h:14:0,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:
+jni/../../Classes/Main/ItemViewScene.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.h:14,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:14:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.h:14,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/Book.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Book.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.h:14,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:15:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.h:14,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.h:14,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:16:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.h:14,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/Charactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Charactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:10:0:
+jni/../../Classes/Utility/UserItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/UserItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/UserItemFactory.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Utility/UserItemFactory.h:14:0,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:10:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:11:0:
+jni/../../Classes/Utility/CreatorsDataFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/CreatorsDataFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:12:0:
+jni/../../Classes/Utility/ImageAsyncSprite.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ImageAsyncSprite.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:13:0:
+jni/../../Classes/Common/CommonDefine.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Common/CommonDefine.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= ItemListTableLayer.cpp
+In file included from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:0:
+jni/../../Classes/Main/Layer/ItemListTableLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:0:
+jni/../../Classes/Main/Layer/ItemListTableLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:0:
+jni/../../Classes/Main/Layer/ItemListTableLayer.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/ItemListTableLayer.h:15:0,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:
+jni/../../Classes/Main/ItemViewScene.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/ItemListTableLayer.h:15:0,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:
+jni/../../Classes/Main/ItemViewScene.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.h:15,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:14:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.h:15,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/Book.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Book.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.h:15,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:15:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.h:15,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.h:15,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:16:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.h:15,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/Charactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Charactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:10:0:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:11:0:
+jni/../../Classes/Common/CommonDefine.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Common/CommonDefine.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:14:0:
+jni/../../Classes/Utility/UserItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/UserItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/UserItemFactory.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= NotificationFactory.cpp
+In file included from jni/../../Classes/Notification/NotificationFactory.cpp:9:0:
+jni/../../Classes/Notification/NotificationFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Notification/NotificationFactory.cpp:9:0:
+jni/../../Classes/Notification/NotificationFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Notification/NotificationFactory.cpp:9:0:
+jni/../../Classes/Notification/NotificationFactory.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Notification/NotificationFactory.h:14:0,
+                 from jni/../../Classes/Notification/NotificationFactory.cpp:9:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Notification/NotificationFactory.cpp:10:0:
+jni/../../Classes/Utility/UserItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/UserItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/UserItemFactory.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= TutorialLayer.cpp
+In file included from jni/../../Classes/Tutorial/TutorialLayer.cpp:9:0:
+jni/../../Classes/Tutorial/TutorialLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Tutorial/TutorialLayer.cpp:9:0:
+jni/../../Classes/Tutorial/TutorialLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= AnimationFactory.cpp
+jni/../../Classes/Utility/AnimationFactory.cpp: In constructor 'AnimationFactory::AnimationFactory()':
+jni/../../Classes/Utility/AnimationFactory.cpp:21:14: warning: passing NULL to non-pointer argument 1 of 'Json::Value::Value(Json::Value::Int)' [-Wconversion-null]
+jni/../../Classes/Utility/AnimationFactory.cpp: In destructor 'virtual AnimationFactory::~AnimationFactory()':
+jni/../../Classes/Utility/AnimationFactory.cpp:26:12: warning: passing NULL to non-pointer argument 1 of 'Json::Value::Value(Json::Value::Int)' [-Wconversion-null]
+jni/../../Classes/Utility/AnimationFactory.cpp: In member function 'virtual bool AnimationFactory::init()':
+jni/../../Classes/Utility/AnimationFactory.cpp:43:18: warning: passing NULL to non-pointer argument 1 of 'Json::Value::Value(Json::Value::Int)' [-Wconversion-null]
+jni/../../Classes/Utility/AnimationFactory.cpp: In member function 'cocos2d::CCActionInterval* AnimationFactory::getActions(char const*, cocos2d::CCDictionary*)':
+jni/../../Classes/Utility/AnimationFactory.cpp:70:23: warning: passing NULL to non-pointer argument 1 of 'Json::Value::Value(Json::Value::Int)' [-Wconversion-null]
+jni/../../Classes/Utility/AnimationFactory.cpp: In member function 'cocos2d::CCActionInterval* AnimationFactory::doCreate(Json::Value&, cocos2d::CCDictionary*)':
+jni/../../Classes/Utility/AnimationFactory.cpp:100:18: warning: passing NULL to non-pointer argument 1 of 'Json::Value::Value(Json::Value::Int)' [-Wconversion-null]
+Compile++ thumb  : cocos2dcpp_shared <= CreatorsDataFactory.cpp
+In file included from jni/../../Classes/Utility/CreatorsDataFactory.cpp:9:0:
+jni/../../Classes/Utility/CreatorsDataFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Utility/CreatorsDataFactory.cpp:9:0:
+jni/../../Classes/Utility/CreatorsDataFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Utility/CreatorsDataFactory.cpp:11:0:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Utility/CreatorsDataFactory.cpp:12:0:
+jni/../../Classes/Utility/UserItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/UserItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/UserItemFactory.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= DateTimeUtil.cpp
+Compile++ thumb  : cocos2dcpp_shared <= ImageAsyncSprite.cpp
+In file included from jni/../../Classes/Utility/ImageAsyncSprite.cpp:9:0:
+jni/../../Classes/Utility/ImageAsyncSprite.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Utility/ImageAsyncSprite.cpp:9:0:
+jni/../../Classes/Utility/ImageAsyncSprite.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ImageAsyncSprite.cpp: In member function 'void ImageAsyncSprite::getHttpAsync(char const*)':
+jni/../../Classes/Utility/ImageAsyncSprite.cpp:68:101: warning: 'void cocos2d::extension::CCHttpRequest::setResponseCallback(cocos2d::CCObject*, cocos2d::SEL_CallFuncND)' is deprecated (declared at /workspace/Ranotan2D-V2/cocos2dx/cocos2d-x-2.1.5/extensions/network/HttpRequest.h:166) [-Wdeprecated-declarations]
+Compile++ thumb  : cocos2dcpp_shared <= TextureFactory.cpp
+In file included from jni/../../Classes/Utility/TextureFactory.cpp:9:0:
+jni/../../Classes/Utility/TextureFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Utility/TextureFactory.cpp:9:0:
+jni/../../Classes/Utility/TextureFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Utility/TextureFactory.cpp:10:0:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= UserItemFactory.cpp
+In file included from jni/../../Classes/Utility/UserItemFactory.cpp:9:0:
+jni/../../Classes/Utility/UserItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Utility/UserItemFactory.cpp:9:0:
+jni/../../Classes/Utility/UserItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Utility/UserItemFactory.cpp:9:0:
+jni/../../Classes/Utility/UserItemFactory.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Utility/UserItemFactory.h:14:0,
+                 from jni/../../Classes/Utility/UserItemFactory.cpp:9:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Utility/UserItemFactory.cpp:11:0:
+jni/../../Classes/Common/CommonDefine.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Common/CommonDefine.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= ViewItemFactory.cpp
+In file included from jni/../../Classes/Utility/ViewItemFactory.cpp:9:0:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Utility/ViewItemFactory.cpp:9:0:
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.cpp: In constructor 'ViewItemFactory::ViewItemFactory()':
+jni/../../Classes/Utility/ViewItemFactory.cpp:24:12: warning: passing NULL to non-pointer argument 1 of 'Json::Value::Value(Json::Value::Int)' [-Wconversion-null]
+jni/../../Classes/Utility/ViewItemFactory.cpp: In destructor 'virtual ViewItemFactory::~ViewItemFactory()':
+jni/../../Classes/Utility/ViewItemFactory.cpp:31:12: warning: passing NULL to non-pointer argument 1 of 'Json::Value::Value(Json::Value::Int)' [-Wconversion-null]
+jni/../../Classes/Utility/ViewItemFactory.cpp: In member function 'virtual bool ViewItemFactory::init()':
+jni/../../Classes/Utility/ViewItemFactory.cpp:66:18: warning: passing NULL to non-pointer argument 1 of 'Json::Value::Value(Json::Value::Int)' [-Wconversion-null]
+jni/../../Classes/Utility/ViewItemFactory.cpp:74:18: warning: passing NULL to non-pointer argument 1 of 'Json::Value::Value(Json::Value::Int)' [-Wconversion-null]
+jni/../../Classes/Utility/ViewItemFactory.cpp: In member function 'cocos2d::CCArray* ViewItemFactory::createSearchList()':
+jni/../../Classes/Utility/ViewItemFactory.cpp:92:33: warning: passing NULL to non-pointer argument 1 of 'Json::Value::Value(Json::Value::Int)' [-Wconversion-null]
+jni/../../Classes/Utility/ViewItemFactory.cpp:102:25: warning: passing NULL to non-pointer argument 1 of 'Json::Value::Value(Json::Value::Int)' [-Wconversion-null]
+jni/../../Classes/Utility/ViewItemFactory.cpp: In member function 'cocos2d::CCArray* ViewItemFactory::getItemListForJsonFromTemp()':
+jni/../../Classes/Utility/ViewItemFactory.cpp:190:29: warning: passing NULL to non-pointer argument 1 of 'Json::Value::Value(Json::Value::Int)' [-Wconversion-null]
+jni/../../Classes/Utility/ViewItemFactory.cpp: In member function 'cocos2d::CCArray* ViewItemFactory::createItemList(Json::Value)':
+jni/../../Classes/Utility/ViewItemFactory.cpp:203:16: warning: passing NULL to non-pointer argument 1 of 'Json::Value::Value(Json::Value::Int)' [-Wconversion-null]
+jni/../../Classes/Utility/ViewItemFactory.cpp:209:23: warning: passing NULL to non-pointer argument 1 of 'Json::Value::Value(Json::Value::Int)' [-Wconversion-null]
+SharedLibrary  : libcocos2dcpp.so
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: error: cannot open crtbegin_so.o: No such file or directory
+make: Leaving directory `/workspace/Ranotan2D-V2/Ranotan2D/proj.android'
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: error: cannot open crtend_so.o: No such file or directory
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/cocos2dcpp_shared/hellocpp/main.o: in function _GLOBAL__sub_I_main.cpp:jni/hellocpp/main.cpp:44: error: undefined reference to '__dso_handle'
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/AppDelegate.o: in function _GLOBAL__sub_I_AppDelegate.cpp:jni/../../Classes/AppDelegate.cpp:109: error: undefined reference to '__dso_handle'
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/Async/AsyncImageCleanup.o: in function _GLOBAL__sub_I_AsyncImageCleanup.cpp:jni/../../Classes/Async/AsyncImageCleanup.h:20: error: undefined reference to '__dso_handle'
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/Async/AsyncImageItem.o: in function _GLOBAL__sub_I_AsyncImageItem.cpp:jni/../../Classes/Async/AsyncImageItem.cpp:218: error: undefined reference to '__dso_handle'
+collect2: ld returned 1 exit status
+make: *** [obj/local/armeabi/libcocos2dcpp.so] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project Ranotan2D ****
+
+bash /workspace/Ranotan2D-V2/Ranotan2D/proj.android/build_native.sh all 
+NDK_ROOT = /workspace/Ranotan2D-V2/android-ndk-r8e
+COCOS2DX_ROOT = /workspace/Ranotan2D-V2/cocos2dx/cocos2d-x-2.1.5
+APP_ROOT = /workspace/Ranotan2D-V2/Ranotan2D/proj.android/..
+APP_ANDROID_ROOT = /workspace/Ranotan2D-V2/Ranotan2D/proj.android
+Using prebuilt externals
+make: Entering directory `/workspace/Ranotan2D-V2/Ranotan2D/proj.android'
+Compile++ thumb  : cocos2dcpp_shared <= AppDelegate.cpp
+In file included from jni/../../Classes/AppDelegate.cpp:13:0:
+jni/../../Classes/Main/ItemViewScene.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/AppDelegate.cpp:13:0:
+jni/../../Classes/Main/ItemViewScene.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/AppDelegate.cpp:13:0:
+jni/../../Classes/Main/ItemViewScene.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/AppDelegate.cpp:13:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:14:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/AppDelegate.cpp:13:
+jni/../../Classes/Main/Charactor/Book.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Book.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/AppDelegate.cpp:13:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:15:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/AppDelegate.cpp:13:
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/AppDelegate.cpp:13:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:16:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/AppDelegate.cpp:13:
+jni/../../Classes/Main/Charactor/Charactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Charactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/AppDelegate.cpp:14:0:
+jni/../../Classes/Notification/NotificationFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Notification/NotificationFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Notification/NotificationFactory.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Notification/NotificationFactory.h:14:0,
+                 from jni/../../Classes/AppDelegate.cpp:14:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/AppDelegate.cpp:16:0:
+jni/../../Classes/Main/Charactor/SerifLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/SerifLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= AsyncItemList.cpp
+In file included from jni/../../Classes/Async/AsyncItemList.cpp:9:0:
+jni/../../Classes/Async/AsyncItemList.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncItemList.cpp:9:0:
+jni/../../Classes/Async/AsyncItemList.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncItemList.cpp:10:0:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncItemList.cpp:11:0:
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.h:16:0,
+                 from jni/../../Classes/Async/AsyncItemList.cpp:11:
+jni/../../Classes/Async/AsyncImageItem.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/AsyncImageItem.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncItemList.cpp:12:0:
+jni/../../Classes/Common/CommonDefine.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Common/CommonDefine.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= AsyncSearchItem.cpp
+In file included from jni/../../Classes/Async/AsyncSearchItem.cpp:9:0:
+jni/../../Classes/Async/AsyncSearchItem.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncSearchItem.cpp:9:0:
+jni/../../Classes/Async/AsyncSearchItem.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncSearchItem.cpp:10:0:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncSearchItem.cpp:11:0:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:14:0,
+                 from jni/../../Classes/Async/AsyncSearchItem.cpp:11:
+jni/../../Classes/Main/Charactor/Book.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Book.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncSearchItem.cpp:11:0:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:15:0,
+                 from jni/../../Classes/Async/AsyncSearchItem.cpp:11:
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncSearchItem.cpp:11:0:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:16:0,
+                 from jni/../../Classes/Async/AsyncSearchItem.cpp:11:
+jni/../../Classes/Main/Charactor/Charactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Charactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncSearchItem.cpp:12:0:
+jni/../../Classes/Common/CommonDefine.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Common/CommonDefine.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncSearchItem.cpp:13:0:
+jni/../../Classes/Main/ItemViewScene.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/AsyncSearchItem.cpp:13:0:
+jni/../../Classes/Main/ItemViewScene.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/AsyncSearchItem.cpp: In constructor 'AsyncSearchItem::AsyncSearchItem()':
+jni/../../Classes/Async/AsyncSearchItem.cpp:24:12: warning: passing NULL to non-pointer argument 1 of 'Json::Value::Value(Json::Value::Int)' [-Wconversion-null]
+jni/../../Classes/Async/AsyncSearchItem.cpp: In destructor 'virtual AsyncSearchItem::~AsyncSearchItem()':
+jni/../../Classes/Async/AsyncSearchItem.cpp:34:12: warning: passing NULL to non-pointer argument 1 of 'Json::Value::Value(Json::Value::Int)' [-Wconversion-null]
+Compile++ thumb  : cocos2dcpp_shared <= ViewItemAsyncProcesser.cpp
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:9:0:
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:9:0:
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:9:0:
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.h:15:0,
+                 from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:9:
+jni/../../Classes/Async/AsyncItemList.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/AsyncItemList.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:9:0:
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.h:16:0,
+                 from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:9:
+jni/../../Classes/Async/AsyncImageItem.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/AsyncImageItem.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:10:0:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:11:0:
+jni/../../Classes/Main/ItemViewScene.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:11:0:
+jni/../../Classes/Main/ItemViewScene.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:11:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:14:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:11:
+jni/../../Classes/Main/Charactor/Book.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Book.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:11:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:15:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:11:
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:11:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:16:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:11:
+jni/../../Classes/Main/Charactor/Charactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Charactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.cpp:12:0:
+jni/../../Classes/Utility/UserItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/UserItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/UserItemFactory.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= DialogLayer.cpp
+In file included from jni/../../Classes/Common/DialogLayer.cpp:11:0:
+jni/../../Classes/Common/CommonDefine.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Common/CommonDefine.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Common/DialogLayer.cpp:13:0:
+jni/../../Classes/Async/AsyncSearchItem.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/AsyncSearchItem.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Common/DialogLayer.cpp:14:0:
+jni/../../Classes/Main/Charactor/SerifLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/SerifLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Common/DialogLayer.cpp:15:0:
+jni/../../Classes/Main/Charactor/SubCharactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/SubCharactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Common/DialogLayer.cpp:16:0:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Common/DialogLayer.cpp:17:0:
+jni/../../Classes/Main/ItemViewScene.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Common/DialogLayer.cpp:17:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:14:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Common/DialogLayer.cpp:17:
+jni/../../Classes/Main/Charactor/Book.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Book.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Common/DialogLayer.cpp:17:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:15:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Common/DialogLayer.cpp:17:
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Common/DialogLayer.cpp:17:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:16:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Common/DialogLayer.cpp:17:
+jni/../../Classes/Main/Charactor/Charactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Charactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Common/DialogLayer.cpp:18:0:
+jni/../../Classes/Utility/CreatorsDataFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/CreatorsDataFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= CharactorLayer.cpp
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:9:0:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:9:0:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:9:0:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:14:0,
+                 from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:9:
+jni/../../Classes/Main/Charactor/Book.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Book.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:9:0:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:15:0,
+                 from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:9:
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:9:0:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:16:0,
+                 from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:9:
+jni/../../Classes/Main/Charactor/Charactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Charactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:10:0:
+jni/../../Classes/Main/Charactor/Effect/StarFlyEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Effect/StarFlyEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:11:0:
+jni/../../Classes/Main/Charactor/SubCharactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/SubCharactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:12:0:
+jni/../../Classes/Common/CommonDefine.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Common/CommonDefine.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.cpp:13:0:
+jni/../../Classes/Main/Charactor/Effect/ConvergenceEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Effect/ConvergenceEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= ItemViewScene.cpp
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:9:0:
+jni/../../Classes/Main/ItemViewScene.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:9:0:
+jni/../../Classes/Main/ItemViewScene.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:9:0:
+jni/../../Classes/Main/ItemViewScene.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:9:0:
+jni/../../Classes/Main/ItemViewScene.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Main/ItemViewScene.cpp:9:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:14:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Main/ItemViewScene.cpp:9:
+jni/../../Classes/Main/Charactor/Book.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Book.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Main/ItemViewScene.cpp:9:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:15:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Main/ItemViewScene.cpp:9:
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Main/ItemViewScene.cpp:9:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:16:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Main/ItemViewScene.cpp:9:
+jni/../../Classes/Main/Charactor/Charactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Charactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:10:0:
+jni/../../Classes/Common/CommonDefine.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Common/CommonDefine.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:12:0:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:13:0:
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.h:15:0,
+                 from jni/../../Classes/Main/ItemViewScene.cpp:13:
+jni/../../Classes/Async/AsyncItemList.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/AsyncItemList.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:13:0:
+jni/../../Classes/Async/ViewItemAsyncProcesser.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Async/ViewItemAsyncProcesser.h:16:0,
+                 from jni/../../Classes/Main/ItemViewScene.cpp:13:
+jni/../../Classes/Async/AsyncImageItem.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Async/AsyncImageItem.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:16:0:
+jni/../../Classes/Utility/UserItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/UserItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/UserItemFactory.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:17:0:
+jni/../../Classes/Utility/CreatorsDataFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/CreatorsDataFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:18:0:
+jni/../../Classes/Main/Layer/ItemListTableLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Layer/ItemListTableLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Layer/ItemListTableLayer.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:19:0:
+jni/../../Classes/Main/Layer/BookMarkTableLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Layer/BookMarkTableLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Layer/BookMarkTableLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:20:0:
+jni/../../Classes/Notification/NotificationFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Notification/NotificationFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Notification/NotificationFactory.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:22:0:
+jni/../../Classes/Utility/TextureFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/TextureFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.cpp:23:0:
+jni/../../Classes/Main/Charactor/SerifLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/SerifLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= BookMarkTableLayer.cpp
+In file included from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:0:
+jni/../../Classes/Main/Layer/BookMarkTableLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:0:
+jni/../../Classes/Main/Layer/BookMarkTableLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:0:
+jni/../../Classes/Main/Layer/BookMarkTableLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/BookMarkTableLayer.h:14:0,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:
+jni/../../Classes/Main/ItemViewScene.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/BookMarkTableLayer.h:14:0,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:
+jni/../../Classes/Main/ItemViewScene.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.h:14,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:14:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.h:14,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/Book.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Book.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.h:14,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:15:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.h:14,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.h:14,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:16:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.h:14,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/Charactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Charactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:10:0:
+jni/../../Classes/Utility/UserItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/UserItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/UserItemFactory.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Utility/UserItemFactory.h:14:0,
+                 from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:10:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:11:0:
+jni/../../Classes/Utility/CreatorsDataFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/CreatorsDataFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:12:0:
+jni/../../Classes/Utility/ImageAsyncSprite.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ImageAsyncSprite.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/BookMarkTableLayer.cpp:13:0:
+jni/../../Classes/Common/CommonDefine.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Common/CommonDefine.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+Compile++ thumb  : cocos2dcpp_shared <= ItemListTableLayer.cpp
+In file included from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:0:
+jni/../../Classes/Main/Layer/ItemListTableLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:0:
+jni/../../Classes/Main/Layer/ItemListTableLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:0:
+jni/../../Classes/Main/Layer/ItemListTableLayer.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/ItemListTableLayer.h:15:0,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:
+jni/../../Classes/Main/ItemViewScene.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/ItemViewScene.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/ItemListTableLayer.h:15:0,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:
+jni/../../Classes/Main/ItemViewScene.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.h:15,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/CharactorLayer.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:14:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.h:15,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/Book.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Book.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.h:15,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:15:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:15:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.h:15,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Effect/MagicCircleEffect.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/ItemViewScene.h:15:0,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.h:15,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/CharactorLayer.h:16:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Charactor/CharactorLayer.h:16:0,
+                 from jni/../../Classes/Main/ItemViewScene.h:15,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.h:15,
+                 from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:9:
+jni/../../Classes/Main/Charactor/Charactor.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Main/Charactor/Charactor.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:10:0:
+jni/../../Classes/Utility/ViewItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/ViewItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:11:0:
+jni/../../Classes/Common/CommonDefine.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Common/CommonDefine.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+In file included from jni/../../Classes/Main/Layer/ItemListTableLayer.cpp:14:0:
+jni/../../Classes/Utility/UserItemFactory.h:12:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/UserItemFactory.h:13:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+jni/../../Classes/Utility/UserItemFactory.h:14:2: warning: #import is a deprecated GCC extension [-Wdeprecated]
+SharedLibrary  : libcocos2dcpp.so
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: error: cannot open crtbegin_so.o: No such file or directory
+make: Leaving directory `/workspace/Ranotan2D-V2/Ranotan2D/proj.android'
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: error: cannot open crtend_so.o: No such file or directory
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/cocos2dcpp_shared/hellocpp/main.o: in function _GLOBAL__sub_I_main.cpp:jni/hellocpp/main.cpp:44: error: undefined reference to '__dso_handle'
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/AppDelegate.o: in function _GLOBAL__sub_I_AppDelegate.cpp:jni/../../Classes/AppDelegate.cpp:109: error: undefined reference to '__dso_handle'
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/Async/AsyncImageCleanup.o: in function _GLOBAL__sub_I_AsyncImageCleanup.cpp:jni/../../Classes/Async/AsyncImageCleanup.h:20: error: undefined reference to '__dso_handle'
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/Async/AsyncImageItem.o: in function _GLOBAL__sub_I_AsyncImageItem.cpp:jni/../../Classes/Async/AsyncImageItem.cpp:218: error: undefined reference to '__dso_handle'
+collect2: ld returned 1 exit status
+make: *** [obj/local/armeabi/libcocos2dcpp.so] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project Ranotan2D ****
+
+bash /workspace/Ranotan2D-V2/Ranotan2D/proj.android/build_native.sh all 
+NDK_ROOT = /workspace/Ranotan2D-V2/android-ndk-r8e
+COCOS2DX_ROOT = /workspace/Ranotan2D-V2/cocos2dx/cocos2d-x-2.1.5
+APP_ROOT = /workspace/Ranotan2D-V2/Ranotan2D/proj.android/..
+APP_ANDROID_ROOT = /workspace/Ranotan2D-V2/Ranotan2D/proj.android
+Using prebuilt externals
+make: Entering directory `/workspace/Ranotan2D-V2/Ranotan2D/proj.android'
+SharedLibrary  : libcocos2dcpp.so
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: error: cannot open crtbegin_so.o: No such file or directory
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: error: cannot open crtend_so.o: No such file or directory
+make: Leaving directory `/workspace/Ranotan2D-V2/Ranotan2D/proj.android'
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/cocos2dcpp_shared/hellocpp/main.o: in function _GLOBAL__sub_I_main.cpp:jni/hellocpp/main.cpp:44: error: undefined reference to '__dso_handle'
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/AppDelegate.o: in function _GLOBAL__sub_I_AppDelegate.cpp:jni/../../Classes/AppDelegate.cpp:109: error: undefined reference to '__dso_handle'
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/Async/AsyncImageCleanup.o: in function _GLOBAL__sub_I_AsyncImageCleanup.cpp:jni/../../Classes/Async/AsyncImageCleanup.h:20: error: undefined reference to '__dso_handle'
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/Async/AsyncImageItem.o: in function _GLOBAL__sub_I_AsyncImageItem.cpp:jni/../../Classes/Async/AsyncImageItem.cpp:218: error: undefined reference to '__dso_handle'
+collect2: ld returned 1 exit status
+make: *** [obj/local/armeabi/libcocos2dcpp.so] Error 1
+
+**** Build Finished ****

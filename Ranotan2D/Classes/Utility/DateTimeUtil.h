@@ -1,0 +1,41 @@
+//
+//  DateTimeUtil.h
+//  Ranotan2D
+//
+//  Created by Takahashi Hiroyuki on 2014/01/12.
+//
+//
+
+#ifndef __Ranotan2D__DateTimeUtil__
+#define __Ranotan2D__DateTimeUtil__
+
+#include <cocos2d.h>
+
+USING_NS_CC;
+
+enum ChechRresult{
+    BEFORE=0,
+    SAME=1,
+    AFTER=2,
+};
+
+
+class DateTimeUtil : public CCObject
+{
+public:
+
+
+    static CCString* getNowDateTime();
+
+    
+    static unsigned long long getNow();
+    static CCString* getDateTime(int days);
+    static bool isBefore(CCString* baseDate, CCString* checkDate );
+    static bool isSame(CCString* baseDate, CCString* checkDate );
+    static bool isAfter(CCString* baseDate, CCString* checkDate );
+    
+private:
+    static ChechRresult doComparate(CCString* baseDate, CCString* checkDate );
+};
+
+#endif /* defined(__Ranotan2D__DateTimeUtil__) */

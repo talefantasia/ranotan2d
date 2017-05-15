@@ -1,0 +1,22 @@
+
+**** Build of configuration Default for project Ranotan2D ****
+
+bash /workspace/Ranotan2D-V2/Ranotan2D/proj.android/build_native.sh all 
+NDK_ROOT = /workspace/Ranotan2D-V2/android-ndk-r8e
+COCOS2DX_ROOT = /workspace/Ranotan2D-V2/cocos2dx/cocos2d-x-2.1.5
+APP_ROOT = /workspace/Ranotan2D-V2/Ranotan2D/proj.android/..
+APP_ANDROID_ROOT = /workspace/Ranotan2D-V2/Ranotan2D/proj.android
+Using prebuilt externals
+make: Entering directory `/workspace/Ranotan2D-V2/Ranotan2D/proj.android'
+SharedLibrary  : libcocos2dcpp.so
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: error: cannot open crtbegin_so.o: No such file or directory
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: error: cannot open crtend_so.o: No such file or directory
+make: Leaving directory `/workspace/Ranotan2D-V2/Ranotan2D/proj.android'
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/cocos2dcpp_shared/hellocpp/main.o: in function _GLOBAL__sub_I_main.cpp:jni/hellocpp/main.cpp:44: error: undefined reference to '__dso_handle'
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/AppDelegate.o: in function _GLOBAL__sub_I_AppDelegate.cpp:jni/../../Classes/AppDelegate.cpp:109: error: undefined reference to '__dso_handle'
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/Async/AsyncImageCleanup.o: in function _GLOBAL__sub_I_AsyncImageCleanup.cpp:jni/../../Classes/Async/AsyncImageCleanup.h:20: error: undefined reference to '__dso_handle'
+/workspace/Ranotan2D-V2/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/darwin-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/Async/AsyncImageItem.o: in function _GLOBAL__sub_I_AsyncImageItem.cpp:jni/../../Classes/Async/AsyncImageItem.cpp:218: error: undefined reference to '__dso_handle'
+collect2: ld returned 1 exit status
+make: *** [obj/local/armeabi/libcocos2dcpp.so] Error 1
+
+**** Build Finished ****

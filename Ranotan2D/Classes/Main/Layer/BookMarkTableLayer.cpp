@@ -1,0 +1,348 @@
+//
+//  BookMarkTableLayer.cpp
+//  Ranotan2D
+//
+//  Created by Takahashi Hiroyuki on 2014/04/19.
+//
+//
+
+#include "BookMarkTableLayer.h"
+#include "UserItemFactory.h"
+#include "CreatorsDataFactory.h"
+#include "ImageAsyncSprite.h"
+#include "CommonDefine.h"
+#include "CommonButton.h"
+#include "DateTimeUtil.h"
+#include "DialogLayer.h"
+
+const CCSize ListTableSize = CCSizeMake(600, 690);
+const CCSize ListCellSize = CCSizeMake(540.0, 182.0);
+const CCSize ListImgSize = CCSizeMake(117.0, 145.0);
+const CCSize ListBgImgSize = CCSizeMake(550, 800);
+
+
+
+BookMarkTableLayer::BookMarkTableLayer()
+{
+    itemList=NULL;
+    planList=NULL;
+    bookmarkList=NULL;
+    table=NULL;
+    bookmarkType=AUTHOR;
+    listIndex=0;
+    deleteIndex=-1;
+}
+
+BookMarkTableLayer::~BookMarkTableLayer()
+{
+    CC_SAFE_RELEASE(itemList);
+    CC_SAFE_RELEASE(planList);
+    CC_SAFE_RELEASE(bookmarkList);
+    CC_SAFE_RELEASE(table);
+    bookmarkType=AUTHOR;
+    listIndex=0;
+    deleteIndex=-1;
+}
+
+BookMarkTableLayer* BookMarkTableLayer::create(BookmarkType type)
+{
+    BookMarkTableLayer* pRet = new BookMarkTableLayer();
+    if (pRet && pRet->init(type)) {
+        pRet->autorelease();
+        return pRet;
+    } else {
+        delete pRet;
+        return NULL;
+    }
+    
+}
+
+bool BookMarkTableLayer::init(BookmarkType type) {
+    if ( !CCLayerColor::initWithColor(ccc4(0, 0, 0, 0)) ) {
+        return false;
+    }
+    
+    bookmarkType=type;
+    //データの取得
+    
+    
+    initData();
+    createTable();
+    
+    CCLOG("Create List %d", type);
+//    CCLOG("ListSize %d", itemList->count());
+    
+    
+    this->setVisible(true);
+    
+    return true;
+}
+
+void BookMarkTableLayer::initData()
+{
+    setPlanList(ViewItemFactory::sharedInstance()->getItemListForJsonOrderbyReleaseDate());
+    setBookmarkList(UserItemFactory::sharedInstance()->getUserItemListOrderbyRegdt());
+    if ( bookmarkType==AUTHOR ) {
+        setItemList(CreatorsDataFactory::sharedInstance()->getAuthors()->allKeys());
+        itemCnt=CreatorsDataFactory::sharedInstance()->getAuthors()->count();
+    } else {
+        setItemList(CreatorsDataFactory::sharedInstance()->getCreators()->allKeys());
+        itemCnt=CreatorsDataFactory::sharedInstance()->getCreators()->count();
+    }
+}
+
+void BookMarkTableLayer::createTable()
+{
+    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+    
+    setTable(CCTableView::create(this, ListTableSize));
+    
+    //    table->setTouchEnabled(false);
+    table->setTouchPriority(1);
+    table->setDirection(kCCScrollViewDirectionVertical);
+    table->setVerticalFillOrder(kCCTableViewFillTopDown);
+    table->setAnchorPoint(ccp(0.5,0));
+    table->setPosition(ccp(winSize.width/2.0-210, winSize.height/2.0-348));
+    table->setDelegate(this);
+    addChild(table, 0);
+    table->reloadData();
+//    if ( index==0 ) {
+//        return;
+//    }
+//    table->setContentOffsetInDuration(mathOffsetFromForcusItem(listIndex), 0.5);
+    
+    if ( itemCnt>0 ) {
+        return;
+    }
+    CCScale9Sprite* bg = NULL;
+    if ( bookmarkType==AUTHOR ) {
+        bg = CCScale9Sprite::create("bg_common_dialog_bookmark_author.png");
+    } else {
+        bg = CCScale9Sprite::create("bg_common_dialog_bookmark_creator.png");
+    }
+    bg->setContentSize(CCSizeMake(470, 670));
+    bg->setPosition(ccp(winSize.width/2.0+60, winSize.height/2.0-10.0));
+    addChild(bg, 0);
+    
+    CCLabelTTF* label = CCLabelTTF::create("ブックマークに登録がありません。\n\nお気に入りの作品は登録して、\n\n発売情報をチェックしよう！！", FONT_W6, 24, CCSizeMake(470, 570), kCCTextAlignmentCenter, kCCVerticalTextAlignmentCenter);
+    label->setPosition(ccp(235, 335));
+    label->setColor(ccc3(255, 255, 0));
+    label->enableShadow(CCSizeMake(2, -2), 0.5f, 0.8f, true);
+    bg->addChild(label);
+
+    
+}
+
+CCSize BookMarkTableLayer::cellSizeForTable(cocos2d::extension::CCTableView *table)
+{
+    return ListCellSize;
+}
+
+unsigned int BookMarkTableLayer::numberOfCellsInTableView(cocos2d::extension::CCTableView *table)
+{
+    return itemCnt;
+}
+
+CCTableViewCell* BookMarkTableLayer::tableCellAtIndex(cocos2d::extension::CCTableView *table, unsigned int idx)
+{
+    CCTableViewCell* cell = table->dequeueCell();
+    if ( !cell ) {
+        cell = new CCTableViewCell();
+        cell->autorelease();
+    } else {
+        //こどもは全て削除
+        cell->removeAllChildren();
+    }
+    
+    CCSprite* sprite = NULL;
+    
+    CCString* name = (CCString*)itemList->objectAtIndex(idx);
+    CCString* itemid = (CCString*)CreatorsDataFactory::sharedInstance()->getCreators()->objectForKey(name->getCString());
+    if ( bookmarkType==AUTHOR ) {
+        itemid = (CCString*)CreatorsDataFactory::sharedInstance()->getAuthors()->objectForKey(name->getCString());
+    }
+    
+    cell->setTag(idx);
+    
+    //背景
+    float posX = ListCellSize.width/2.0;
+    float posY = ListCellSize.height/2.0;
+    CCString* bgImg = CCString::create("bg_list_item_bookmark.png");
+    if ( bookmarkType==AUTHOR ) {
+        bgImg = CCString::create("bg_list_item_bookmark_author.png");
+    }
+    sprite = CCSprite::createWithSpriteFrameName(bgImg->getCString());
+    sprite->setPosition(ccp(posX, posY));
+    //    sprite->setOpacity(64);
+    cell->addChild(sprite);
+    
+    CCImage *image = new CCImage();
+    std::string imagePath =UserDataDefault::sharedInstance()->getNowTargetDirPath()+ "S_" +itemid->getCString();
+    //    if ( listType==SEARCH ) {
+    //        imagePath =UserDataDefault::sharedInstance()->getNowTargetDirPath()+ "search_S_" +item->getItemid()->getCString();
+    //    }
+    bool flg = image->initWithImageFile(imagePath.c_str());
+    
+    image->autorelease();
+    // 3. CCTexture2DからCCSpriteへ
+    
+    CCTexture2D *texture = new CCTexture2D();
+    texture->initWithImage(image);
+    texture->autorelease();
+    if ( flg ) {
+        sprite = CCSprite::createWithTexture(texture);
+    } else {
+        sprite = CCSprite::create();
+    }
+    sprite -> setPosition(ccp(107, 89));
+    CCSize contentSize = sprite->getContentSize();
+    float scaleX = ListImgSize.width / contentSize.width;
+    float scaleY = ListImgSize.height / contentSize.height;
+    sprite -> setScaleX(scaleX);
+    sprite -> setScaleY(scaleY);
+    cell->addChild(sprite);
+
+
+    //作家・イラストの名前の枠
+    sprite = CCSprite::create("bg_bookmark_label_author.png");
+    if ( bookmarkType==CREATOR ) {
+        sprite = CCSprite::create("bg_bookmark_label_creator.png");
+    }
+    sprite->setPosition(ccp(ListCellSize.width/2.0+70, posY+41));
+    cell->addChild(sprite);
+    
+    //作家・イラスト名
+    CCLabelTTF* label = NULL;
+    label = CCLabelTTF::create(name->getCString(), FONT_W6, 24, CCSizeMake(ListCellSize.width-260, 50), kCCTextAlignmentLeft, kCCVerticalTextAlignmentCenter);
+    label->setPosition(ccp(ListCellSize.width/2.0+70, posY+43));
+    label->setColor(ccc3(255, 255, 0));
+    label->enableShadow(CCSizeMake(2, -2), 0.5f, 0.8f, true);
+    cell->addChild(label);
+
+    //発売予定数
+    int cnt = includeKeyWord(name->getCString(), PLAN);
+    CCString* incPlanNum = CCString::createWithFormat("発売予定表：%d 件", cnt);
+    label = CCLabelTTF::create(incPlanNum->getCString(), FONT_W6, 20, CCSizeMake(ListCellSize.width-260, 50), kCCTextAlignmentLeft, kCCVerticalTextAlignmentCenter);
+    label->setPosition(ccp(ListCellSize.width/2.0+90, posY-10));
+    label->setColor(ccc3(255, 255, 255));
+    label->enableShadow(CCSizeMake(2, -2), 0.5f, 0.8f, true);
+    cell->addChild(label);
+    if ( cnt>0 ) {
+        label = CCLabelTTF::create("★", FONT_W6, 24, CCSizeMake(ListCellSize.width-260, 50), kCCTextAlignmentLeft, kCCVerticalTextAlignmentCenter);
+        label->setPosition(ccp(ListCellSize.width/2.0+60, posY-7));
+        label->setColor(ccc3(255, 255, 0));
+        label->runAction(CCRepeatForever::create(CCBlink::create(4.0, 2.0)));
+        cell->addChild(label);
+    }
+
+    //お気に入り数
+    CCString* incFavaNum = CCString::createWithFormat("お気に入り：%d 件", includeKeyWord(name->getCString(), BOOKMARK));
+    label = CCLabelTTF::create(incFavaNum->getCString(), FONT_W6, 20, CCSizeMake(ListCellSize.width-260, 50), kCCTextAlignmentLeft, kCCVerticalTextAlignmentCenter);
+    label->setPosition(ccp(ListCellSize.width/2.0+90, posY-50));
+    label->setColor(ccc3(255, 255, 255));
+    label->enableShadow(CCSizeMake(2, -2), 0.5f, 0.8f, true);
+    cell->addChild(label);
+
+    
+    return cell;
+}
+
+void BookMarkTableLayer::tableCellTouched(CCTableView *table, CCTableViewCell *cell)
+{
+    CCString* name = (CCString*)itemList->objectAtIndex(cell->getTag());
+    CCString* itemid = (CCString*)CreatorsDataFactory::sharedInstance()->getCreators()->objectForKey(name->getCString());
+    if ( bookmarkType==AUTHOR ) {
+        itemid = (CCString*)CreatorsDataFactory::sharedInstance()->getAuthors()->objectForKey(name->getCString());
+    }
+
+    ItemViewScene* scene = (ItemViewScene*)CCDirector::sharedDirector()->getRunningScene();
+    
+    CCDictionary* dic = CCDictionary::create();
+    dic->setObject(CCInteger::create(1), "BgType");
+    DialogLayer::DialogType type = DialogLayer::DialogType_BookmarkAuthor;
+    if (bookmarkType==CREATOR) {
+        type = DialogLayer::DialogType_BookmarkCreator;
+        dic->setObject(CCInteger::create(2), "BgType");
+    }
+    dic->setObject(name, "name");
+    dic->setObject(itemid, "itemid");
+    dic->setObject(createIncludePlans(name->getCString()), "list");
+    
+    
+    scene->createDialog(type, this, callfunc_selector(BookMarkTableLayer::moveCallback), dic);
+}
+
+void BookMarkTableLayer::scrollViewDidScroll(CCScrollView* view){
+}
+
+void BookMarkTableLayer::scrollViewDidZoom(CCScrollView* view)
+{
+}
+
+int BookMarkTableLayer::includeKeyWord(const char* name, ListType type)
+{
+    int cnt = 0;
+    CCArray* list = NULL;
+    if ( type==PLAN ) {
+        list = planList;
+    } else if (type==BOOKMARK) {
+        list = bookmarkList;
+    } else {
+        return cnt;
+    }
+    
+    if ( list==NULL || list->count()==0 ) {
+        return cnt;
+    }
+    for (int i=0; i<list->count(); i++) {
+        const char* compChar = "";
+        if ( type==PLAN && bookmarkType==AUTHOR ) {
+            ViewItem* item = (ViewItem*)list->objectAtIndex(i);
+            compChar = item->getAuther()->getCString();
+        } else if ( type==PLAN && bookmarkType==CREATOR ) {
+            ViewItem* item = (ViewItem*)list->objectAtIndex(i);
+            compChar = item->getCreator()->getCString();
+        } else if ( type==BOOKMARK && bookmarkType==AUTHOR ) {
+            ViewItem* item = (ViewItem*)list->objectAtIndex(i);
+            compChar = item->getAuther()->getCString();
+        } else if ( type==BOOKMARK && bookmarkType==CREATOR ) {
+            ViewItem* item = (ViewItem*)list->objectAtIndex(i);
+            compChar = item->getCreator()->getCString();
+        }
+        if ( strcmp(name, compChar)==0 ) {
+            cnt++;
+            continue;
+        }
+    }
+    return cnt;
+}
+
+CCArray* BookMarkTableLayer::createIncludePlans(const char *name)
+{
+    CCArray* list = CCArray::create();
+    for (int i=0; i<planList->count(); i++) {
+        const char* compChar = "";
+        ViewItem* item = (ViewItem*)planList->objectAtIndex(i);
+        if ( bookmarkType==AUTHOR ) {
+            compChar = item->getAuther()->getCString();
+        } else if ( bookmarkType==CREATOR ) {
+            compChar = item->getCreator()->getCString();
+        }
+        
+        if ( strcmp(name, compChar)==0 ) {
+            CCDictionary* dic = CCDictionary::create();
+            dic->setObject(CCInteger::create(i), "idx");
+            dic->setObject(item, "item");
+            list->addObject(dic);
+            continue;
+        }
+    }
+    return list;
+}
+
+void BookMarkTableLayer::moveCallback()
+{
+    ItemListLayer* layer = (ItemListLayer*) getParent();
+    layer->changeDetailReady(CreatorsDataFactory::sharedInstance()->getListIndex(), PLAN, PLAN_ALL);
+}
+

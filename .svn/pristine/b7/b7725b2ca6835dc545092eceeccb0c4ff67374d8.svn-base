@@ -1,0 +1,137 @@
+//
+//  AsyncItemList.cpp
+//  Ranotan2D
+//
+//  Created by Takahashi Hiroyuki on 2013/12/17.
+//
+//
+
+#include "AsyncItemList.h"
+#include "ViewItemFactory.h"
+#include "ViewItemAsyncProcesser.h"
+#include "CommonDefine.h"
+#include "DialogLayer.h"
+
+#define PREFARENCE_KEY_ITEMLIST "ITEMLIST"
+#define SERVER_URL_ITEMLIST "http://talefantasia.appspot.com/search/plan2?version=2"
+
+
+AsyncItemList::AsyncItemList()
+{
+    m_pCallfunc=NULL;
+    m_pTarget=NULL;
+    m_pFailTarget=NULL;
+    m_pFailCallfunc=NULL;
+    index = 0;
+}
+
+AsyncItemList::~AsyncItemList()
+{
+    m_pCallfunc=NULL;
+    m_pTarget=NULL;
+    m_pFailTarget=NULL;
+    m_pFailCallfunc=NULL;
+    index = 0;
+}
+
+bool AsyncItemList::init()
+{
+    doAsync();
+    return true;
+}
+
+bool AsyncItemList::init(CCObject* target, SEL_CallFunc callfunc, CCObject* failTarget, SEL_CallFunc failCallfunc)
+{
+    m_pTarget = target;
+    m_pCallfunc = callfunc;
+    m_pFailTarget = failTarget;
+    m_pFailCallfunc=failCallfunc;
+    doAsync();
+    return true;
+}
+
+
+AsyncItemList* AsyncItemList::create()
+{
+    AsyncItemList* pRet = new AsyncItemList();
+    if (pRet && pRet->init()) {
+        pRet->retain();
+        pRet->autorelease();
+        return pRet;
+    } else {
+        delete pRet;
+        return NULL;
+    }
+
+}
+
+AsyncItemList* AsyncItemList::create(cocos2d::CCObject *target, SEL_CallFunc callfunc, CCObject* failTarget, SEL_CallFunc failCallfunc)
+{
+    AsyncItemList* pRet = new AsyncItemList();
+    if (pRet && pRet->init(target, callfunc, failTarget, failCallfunc)) {
+        pRet->retain();
+        pRet->autorelease();
+        return pRet;
+    } else {
+        delete pRet;
+        return NULL;
+    }
+}
+
+void AsyncItemList::doAsync()
+{
+    CCLog("Start AsynItemList");
+    CCHttpRequest *request = new CCHttpRequest();
+    request->setUrl(SERVER_URL_ITEMLIST);
+    request->setRequestType(CCHttpRequest::kHttpGet);
+    request->setResponseCallback(this, httpresponse_selector(AsyncItemList::onHttpRequestCompleted)); // コールバック
+    CCLog("%d",CCHttpClient::getInstance()->getTimeoutForConnect());
+    CCLog("%d",CCHttpClient::getInstance()->getTimeoutForRead());
+    CCHttpClient::getInstance()->setTimeoutForRead(30);
+    CCHttpClient::getInstance()->send(request);
+    request->release();
+   
+}
+
+void AsyncItemList::onHttpRequestCompleted(cocos2d::CCNode *sender, void *data)
+{
+    CCHttpResponse *response = (CCHttpResponse *) data;
+    if (!response->isSucceed()) {
+        DialogLayer* layer = DialogLayer::create(DialogLayer::DialogType_FailItemSync, m_pFailTarget, m_pFailCallfunc, NULL);
+        CCDirector::sharedDirector()->getRunningScene()->addChild(layer);
+        return;
+    }
+    sendMessage("Server Response Success. ( Process 1/5 )", false);
+    sendMessage("Response Analysis Start. ( Process 2/5 )", false);
+    
+    std::vector<char> *buffer = response->getResponseData();
+    
+    std::string config(buffer->begin(), buffer->end() );
+    ViewItemFactory::sharedInstance()->updateItemList(config);
+    sendMessage("Response Analysis Complete. ( Process 2/5 )", false);
+
+    //CallBack
+    if ( m_pTarget && m_pCallfunc ) {
+        (m_pTarget->*m_pCallfunc)();
+    }
+}
+
+//void AsyncItemList::doBeforeCloseSyncProcess()
+//{
+//    //台詞チェンジ
+//    CCNotificationCenter::sharedNotificationCenter()->postNotification(NOTIFICATION_CHARACTOR_SUBEFFECT_SEARCH_COMPLETE);
+//    //一秒待つ。
+//    CCActionInterval* delay = CCDelayTime::create(3.0);
+//    CCCallFunc* func = CCCallFunc::create(this, callfunc_selector(AsyncItemList::doCloseSyncProcess));
+//    runAction(CCSequence::create(delay, func, NULL));
+//}
+
+
+void AsyncItemList::sendMessage(const char *message, bool isCurrent)
+{
+    ViewItemAsyncProcesser* processor = dynamic_cast<ViewItemAsyncProcesser*>(m_pTarget);
+    if ( processor==NULL ) {
+        return;
+    }
+    processor->sendMessage(message, isCurrent);
+}

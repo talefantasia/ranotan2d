@@ -1,0 +1,204 @@
+//
+//  MagicCircleEffect.cpp
+//  Ranotan2D
+//
+//  Created by Takahashi Hiroyuki on 2014/03/20.
+//
+//
+
+#include "MagicCircleEffect.h"
+#include "AnimationFactory.h"
+#include <stdlib.h>
+
+MagicCircleEffect::MagicCircleEffect()
+{
+    color=MagicCircleEffectStatus::ColorType_GREEN;
+    animation=MagicCircleEffectStatus::AnimationType_Normal;
+}
+
+MagicCircleEffect::~MagicCircleEffect()
+{
+    color=MagicCircleEffectStatus::ColorType_GREEN;
+    animation=MagicCircleEffectStatus::AnimationType_Normal;
+}
+
+MagicCircleEffect* MagicCircleEffect::create(MagicCircleEffectStatus::ColorType color, MagicCircleEffectStatus::AnimationType animation)
+{
+    MagicCircleEffect* pRet = new MagicCircleEffect();
+    if (pRet && pRet->init(color, animation)) {
+        return pRet;
+    } else {
+        delete pRet;
+        return NULL;
+    }
+}
+
+bool MagicCircleEffect::init(MagicCircleEffectStatus::ColorType colorType, MagicCircleEffectStatus::AnimationType animationType)
+{
+    if ( !CCNode::create() ) {
+        return false;
+    }
+    int deg = arc4random() % 360;
+    setRotation(deg);
+    color = colorType;
+    animation=animationType;
+    initCircleEffect();
+    initStarEffect();
+    return true;
+}
+
+void MagicCircleEffect::initCircleEffect()
+{
+    switch (animation) {
+        case MagicCircleEffectStatus::AnimationType_Normal:
+        {
+            CCSprite* sprite = CCSprite::createWithSpriteFrameName("ring_circle.png");
+            sprite->setPosition(ccp(0.0,0.0));
+            sprite->setScale(0);
+            CCString* actionName = CCString::create("detail-content-notice-4");
+            if (color==MagicCircleEffectStatus::ColorType_NONE) {
+                actionName = CCString::create("detail-content-notice-6");
+            }
+            CCActionInterval* action1 = AnimationFactory::sharedInstance()->getActions(actionName->getCString(),CCCallFunc::create(sprite, callfunc_selector(CCSprite::removeFromParent)));
+            CCCallFunc::create(sprite, callfunc_selector(CCNode::removeFromParent));
+            addChild(sprite);
+            sprite->runAction(action1);
+
+        }
+            break;
+        case MagicCircleEffectStatus::AnimationType_TYPE1:
+        {
+            CCSprite* sprite = CCSprite::createWithSpriteFrameName("ring_circle.png");
+            sprite->setPosition(ccp(0.0,0.0));
+            sprite->setScale(0);
+            CCString* actionName = CCString::create("detail-content-notice-8");
+            CCActionInterval* action1 = AnimationFactory::sharedInstance()->getActions(actionName->getCString(),CCCallFunc::create(sprite, callfunc_selector(CCSprite::removeFromParent)));
+            CCCallFunc::create(sprite, callfunc_selector(CCNode::removeFromParent));
+            addChild(sprite);
+            sprite->runAction(action1);
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+void MagicCircleEffect::initStarEffect()
+{
+    const char* filename;
+    switch (color) {
+        case MagicCircleEffectStatus::ColorType_GREEN:
+            filename = "img_star_green2.png";
+            break;
+        case MagicCircleEffectStatus::ColorType_PURPLE:
+            filename = "img_star_purple.png";
+            break;
+        case MagicCircleEffectStatus::ColorType_BLUE:
+            filename = "img_star_blue.png";
+            break;
+        case MagicCircleEffectStatus::ColorType_NONE:
+        {
+            CCNode* node = CCNode::create();
+            addChild(node, 0, 10000);
+            if ( color==MagicCircleEffectStatus::ColorType_NONE ) {
+                node->runAction(CCRotateBy::create(5.0, 1080));
+            }
+            int startDeg = arc4random() % 360;
+            for (int i=0; i<20; i++) {
+                int file = arc4random() % 3;
+                if ( file==0 ) {
+                    filename = "img_star_green2.png";
+                } else if ( file==1 ) {
+                    filename = "img_star_purple.png";
+                } else {
+                    filename = "img_star_blue.png";
+                }
+                int deg = startDeg + 35*i;
+                //   CCLOG("%d", deg);
+                float r =  100.0;
+                if ( color==MagicCircleEffectStatus::ColorType_NONE ) {
+                    r =  200.0;
+                }
+                float startPosX = r * cos(CC_DEGREES_TO_RADIANS(deg));
+                float startPosY = r * sin(CC_DEGREES_TO_RADIANS(deg));
+                
+                
+//                int delay1 = arc4random() % 10;
+                float delay1 = 0.02*(float)i;
+                createStar(filename, "detail-content-notice-7", ccp(startPosX,startPosY), delay1);
+            }
+            
+        }
+            return;
+            break;
+        default:
+        {
+//            CCNode* node = CCNode::create();
+//            addChild(node, 0, 10000);
+//            for (int i=0; i<20; i++) {
+//                int file = arc4random() % 3;
+//                if ( file==0 ) {
+//                    filename = "img_star_green2.png";
+//                } else if ( file==1 ) {
+//                    filename = "img_star_purple.png";
+//                } else {
+//                    filename = "img_star_blue.png";
+//                }
+//                int deg = arc4random() % 360;
+//                //   CCLOG("%d", deg);
+//                float r = arc4random() % 75 + 150;
+//                float startPosX = r * cos(CC_DEGREES_TO_RADIANS(deg));
+//                float startPosY = r * sin(CC_DEGREES_TO_RADIANS(deg));
+//                
+//                
+//                int delay1 = arc4random() % 10;
+//                createStar(filename, "detail-content-notice-7", ccp(startPosX,startPosY), (float)delay1/10.0);
+//            }
+//            
+        }
+            return;
+            break;
+
+    }
+    
+    for (int i=0; i<10; i++) {
+        
+        int deg = arc4random() % 360;
+        //   CCLOG("%d", deg);
+        float r = arc4random() % 75 + 100;
+        float startPosX = r * cos(CC_DEGREES_TO_RADIANS(deg));
+        float startPosY = r * sin(CC_DEGREES_TO_RADIANS(deg));
+
+        
+        int delay1 = arc4random() % 6;
+        createStar(filename, "detail-content-notice-3", ccp(startPosX,startPosY), (float)delay1/10.0);
+    }
+    
+    
+
+}
+
+void MagicCircleEffect::createStar(const char* filename, const char* actionName, CCPoint movePos, float delay)
+{
+    CCSprite* sprite = CCSprite::createWithSpriteFrameName(filename);
+    sprite->setPosition(ccp(0,0));
+    sprite->setScale(0);
+    CCDictionary* dic = CCDictionary::create();
+    dic->setObject(CCFloat::create(movePos.x), "move_posx");
+    dic->setObject(CCFloat::create(movePos.y), "move_posy");
+    CCActionInterval* action2 = AnimationFactory::sharedInstance()->getActions(actionName,dic,CCCallFunc::create(sprite, callfunc_selector(CCSprite::removeFromParent)));
+    CCCallFunc::create(sprite, callfunc_selector(CCSprite::removeFromParent));
+    CCNode* node = getChildByTag(10000);
+    if ( node!=NULL ) {
+        node->addChild(sprite);
+    } else {
+        addChild(sprite);
+    }
+    
+    CCSequence* action = CCSequence::create(CCDelayTime::create(delay), action2, NULL);
+    
+    sprite->runAction(action);
+
+}

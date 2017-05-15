@@ -1,0 +1,529 @@
+//
+//  ItemViewScene.h
+//  Ranotan2D
+//
+//  Created by Takahashi Hiroyuki on 2013/12/10.
+//
+//
+
+#ifndef __Ranotan2D__ItemViewScene__
+#define __Ranotan2D__ItemViewScene__
+
+#import <cocos2d.h>
+#import "cocos-ext.h"
+#import "DialogLayer.h"
+#import "CharactorLayer.h"
+#import "ViewItemFactory.h"
+
+
+USING_NS_CC;
+USING_NS_CC_EXT;
+
+
+#define TAG_ITEMVIEW_LIST (10001)
+#define TAG_ITEMVIEW_DETAIL (10002)
+#define TAG_ITEMVIEW_EFFECT_RIGHT (10003)
+#define TAG_ITEMVIEW_EFFECT_LEFT (10004)
+#define TAG_ITEMVIEW_EFFECT_DOWN (10005)
+#define TAG_ITEMVIEW_DIALOG (10006)
+#define TAG_ITEMVIEW_SERVERSYNC (10007)
+#define TAG_ITEMVIEW_CHARACTOR (10008)
+#define TAG_ITEMVIEW_CHARACTOR_SERIF (10009)
+#define TAG_ITEMVIEW_CHARACTOR_SUB (10010)
+#define TAG_ITEMVIEW_SETTING (10011)
+
+#define TAG_LIST_PLAN (20001)
+#define TAG_LIST_USERITEM (20002)
+#define TAG_LIST_TITLE (20003)
+#define TAG_LIST_MENU (20004)
+#define TAG_LIST_NAVICHARA (20005)
+#define TAG_LIST_TABLELAYER (200056)
+#define TAG_LIST_BOOKMARK_LEFT_MENU (20007)
+#define TAG_LIST_BOOKMARK_OVERRAY (20008)
+
+#define TAG_DETAIL_IMAGE_TEMP_LEFT (30001)
+#define TAG_DETAIL_IMAGE (30002)
+#define TAG_DETAIL_IMAGE_TEMP_RIGHT (30003)
+#define TAG_DETAIL_TITLE (30004)
+#define TAG_DETAIL_FADE_TEXT_LEFT (30201)
+#define TAG_DETAIL_FADE_TEXT_CENTER (30202)
+#define TAG_DETAIL_FADE_TEXT_RIGHT (30203)
+#define TAG_DETAIL_INFO (30005)
+#define TAG_DETAIL_INFO_BG (30028)
+#define TAG_DETAIL_CONTENT (30006)
+#define TAG_DETAIL_CONTENT_BG (30029)
+#define TAG_DETAIL_BOOKMARK_BG (30030)
+#define TAG_DETAIL_MENU (30007)
+#define TAG_DETAIL_MENU_INFO (30007)
+#define TAG_DETAIL_MENU_CONTENT (30009)
+#define TAG_DETAIL_MENU_CONTENT_NOTICE_1 (30010)
+#define TAG_DETAIL_MENU_CONTENT_NOTICE_2 (30024)
+#define TAG_DETAIL_MENU_BUY_ITEM (30026)
+#define TAG_DETAIL_MENU_RETURN_LIST (30027)
+#define TAG_DETAIL_ITEMNAVI (30011)
+#define TAG_DETAIL_MENU_ITEMNAVI (30012)
+#define TAG_DETAIL_IMAGE_GOAST (30013)
+#define TAG_DETAIL_ITEMNAVI_ITEM_1  (30101)
+#define TAG_DETAIL_ITEMNAVI_ITEM_2  (30102)
+#define TAG_DETAIL_ITEMNAVI_ITEM_3  (30103)
+#define TAG_DETAIL_ITEMNAVI_ITEM_4  (30104)
+#define TAG_DETAIL_ITEMNAVI_ITEM_5  (30105)
+#define TAG_DETAIL_ITEMNAVI_ITEM_6  (30106)
+#define TAG_DETAIL_ITEMNAVI_ITEM_7  (30107)
+#define TAG_DETAIL_ITEMNAVI_ITEM_8  (30108)
+#define TAG_DETAIL_ITEMNAVI_ITEM_9  (30109)
+#define TAG_DETAIL_ITEMNAVI_ITEM_10 (30110)
+#define TAG_DETAIL_ITEMNAVI_ITEM_11 (30111)
+#define TAG_DETAIL_ITEMNAVI_ITEM_12 (30112)
+#define TAG_DETAIL_ITEMNAVI_ITEM_13 (30113)
+#define TAG_DETAIL_IMAGE_TARGET_NODE (300023)
+#define TAG_DETAIL_NAVICHARA (30024)
+#define TAG_DETAIL_SERIF (30025)
+#define TAG_DETAIL_ANIMATION_PANELMANAGE (30031)
+#define TAG_DETAIL_ANIMATION_FADETO (30032)
+
+#define TAG_SERVERSYNC_CURRENT_CONSOLE (40001)
+#define TAG_SERVERSYNC_MESSAGE (40002)
+
+#define TAG_SETTINGLAYER_NAVI_BAR (50001)
+
+
+enum ViewType
+{
+    LIST = 0,
+    DETAIL  = 1,
+};
+
+enum ListType
+{
+    PLAN = 0,
+    BOOKMARK =1,
+    SEARCH =2,
+};
+
+enum PlanType
+{
+    PLAN_ALL = 0,
+    PLAN_BOOKMARK = 1,
+    PLAN_LABEL = 2,
+};
+
+enum BookmarkType
+{
+    ALL = 0,
+    AUTHOR = 1,
+    CREATOR = 2,
+};
+
+enum ScrollType
+{
+    INCREMENT = 0,
+    DECREMENT = 1,
+};
+
+enum ExclusiveStatus
+{
+    ExclusiveStatus_None    = 0,
+    ExclusiveStatus_Search  = 1,
+};
+
+class ItemViewScene : public CCLayerGradient
+{
+public:
+    enum LayerZOrder
+    {
+        zOrder_Dialog       = 20,
+        zOrder_Setting      = 17,
+        zOrder_Charactor    = 15,
+        zOrder_Serif        = 12,
+        zOrder_ItemList     = 10,
+        zOrder_ItemDetail   = 5,
+        zOrder_BackGround   = 0,
+        zOrder_BGEffect     = 1,
+    };
+
+    
+    //Properties
+    CC_SYNTHESIZE(ViewType, viewType, ViewType);
+    CC_SYNTHESIZE(ListType, listType, ListType);
+    CC_SYNTHESIZE(PlanType, planType, PlanType);
+    CC_SYNTHESIZE(ExclusiveStatus, exclusiveStatus, ExclusiveStatus);
+    CC_SYNTHESIZE_RETAIN(CCArray*, itemList, ItemList);
+    CC_SYNTHESIZE(int, listIndex, ListIndex);
+    CC_SYNTHESIZE(int, ceparateIndex, CeparateIndex);
+    CC_SYNTHESIZE(bool, isCamera, IsCamera);
+    CC_SYNTHESIZE_RETAIN(CCArray*, searchItemList, SearchItemList);
+    CC_SYNTHESIZE_RETAIN(CCString*, searchTitle, SearchTitle);
+    CC_SYNTHESIZE_RETAIN(CCArray*, noticeItemList, NoticeItemList);
+    
+    CC_SYNTHESIZE(CCPoint, touchStart, TouchStart);
+    //Method
+    ItemViewScene();
+    virtual ~ItemViewScene();
+    virtual bool init();
+    bool hasSearchItem();
+    bool doDataProcess();
+    void doViewProcess();
+    void doListProcess(bool doSync);
+    void doDetailProcess();
+    void doServerSyncProcess();
+    void doNoticeProcess();
+    void createList();
+    void mathCeparateIndex();
+    void initSettingLayer();
+    void initConfig();
+    void initBackGround();
+    void initCharactor();
+    void initSerifLayer();
+    void CharactorTap();
+    void createSerif(const char* serif, bool isDuplicate);
+    void createSerif(const char* serif, CCPoint basePos, bool isDuplicate);
+    
+    CharactorLayer* getCharactorLayer();
+    
+    void createDialog(DialogLayer::DialogType type, CCObject* target, SEL_CallFunc doneSelector, CCDictionary* params);
+    void doBackGroundEffect(int kind);
+    
+    void changeViewSearch();
+    void changeCamera();
+    
+    void setSerifEnterForeground();
+
+    static CCScene* scene();
+    
+    void addNoticeBookmark();
+    
+    void restartViewItemScene();
+
+    //Touch
+    void registerWithTouchDispatcher();
+    bool ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
+    void ccTouchEnded(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
+    void ccTouchMoved(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
+
+    
+private:
+    //Method
+    void serverSyncCallback();
+    virtual void update(float delta);
+    
+    
+};
+
+class ItemListLayer :   public CCLayer
+{
+public:
+    enum LayerZOrder
+    {
+        zOrder_Title       = 20,
+        zOrder_ItemMenu       = 18,
+        zOrder_BookmarkOverray = 15,
+        zOrder_ItemList    = 10,
+        zOrder_BackGround  = 0,
+        zOrder_BGEffect  = 1,
+    };
+
+    enum TitleType{
+        InitTitle,
+        Fadeout,
+        Fadein,
+    };
+    
+//    CC_SYNTHESIZE_RETAIN(CCArray*, itemList, ItemList);
+    CC_SYNTHESIZE_RETAIN(CCArray*, itemList, ItemList);
+    CC_SYNTHESIZE_RETAIN(CCArray*, noticeList, NoticeList);
+    CC_SYNTHESIZE_RETAIN(CCTableView*, table, Table);
+    CC_SYNTHESIZE(ListType, listType, ListType);
+    CC_SYNTHESIZE(PlanType, planType, PlanType);
+    CC_SYNTHESIZE(BookmarkType, bookmarkType, BookmarkType);
+    
+    unsigned int itemCnt;
+    int forcsItem;
+    ScrollType scrollType;
+    CCPoint touchBeginPos;
+    CCPoint naviCharaMarisaPos;
+
+
+    float circleDetail;
+    
+    ItemListLayer();
+    virtual ~ItemListLayer();
+    virtual bool init(int index, ListType listType, PlanType planType);
+    void initData();
+    void initLayout(int index);
+    void createList(int index);
+    static ItemListLayer* create();
+    static ItemListLayer* create(int index, ListType listType, PlanType planType);
+    
+    void changeDetailReady(int listIndex);
+    void changeDetailReady(int listIndex, ListType type);
+    void changeDetailReady(int listIndex, ListType type, PlanType planType);
+    void changeDetail();
+    virtual void onEnter();
+    
+private:
+    float beforeOffsetY;
+    
+    void initNoticeData();
+    void initLayoutPlan();
+    void initLayoutSearch();
+    void initLayoutBookMark(int index);
+    
+    void confirmSync();
+    void confirmSyncFromTimelimit();
+    void doServerSync();
+    void createLeftMenu();
+    void openCredit();
+    void openHelp();
+
+    void planMenu(int index);
+    void bookmarkMenu(int index);
+    void searchMenu(int index);
+    void changePlanTypeReady( PlanType type );
+    void changePlanType();
+    inline void changePlanTypeAll() { changePlanTypeReady(PLAN_ALL); };
+    inline void changePlanTypeBookmark() { changePlanTypeReady(PLAN_BOOKMARK); };
+    
+    void changeBookmarkTypeReady( BookmarkType type );
+    void changeBookmarkType();
+    inline void changeBookmarkTypeAll() { changeBookmarkTypeReady(ALL); };
+    inline void changeBookmarkTypeAuthor() { changeBookmarkTypeReady(AUTHOR); };
+    inline void changeBookmarkTypeCreator() { changeBookmarkTypeReady(CREATOR); };
+    
+    void changeBookmarkReady();
+    void changeBookmark();
+    void changePlanReady();
+    void changePlan();
+    void changeSearch();
+    
+    void tapCharactor();
+    
+};
+
+class ItemDetailLayer : public CCLayer
+{
+public:
+    enum LayerZOrder
+    {
+        zOrder_Title       = 20,
+        zOrder_Title_Back       = 19,
+        zOrder_NaviChara    = 9,
+        zOrder_ItemInfo    = 10,
+        zOrder_ItemContent    = 10,
+        zOrder_ItemMenu    = 18,
+        zOrder_ItemNavi    = 10,
+        zOrder_ItemContent_Back = 21,
+        zOrder_ItemBookmark_Back = 22,
+        zOrder_ItemImage  = 0,
+        zOrder_BGEffect  = 1,
+    };
+
+    enum PanelStatus
+    {
+        OPEN = 0,
+        CLOSE = 1,
+    };
+    
+    ScrollType scrollType;
+    CC_SYNTHESIZE_RETAIN(CCArray*, itemList, ItemList);
+    CC_SYNTHESIZE(int, listIndex, ListIndex);
+    CC_SYNTHESIZE(ListType, listType, ListType);
+    CC_SYNTHESIZE(PlanType, planType, PlanType);
+    CCPoint touchBeginPos;
+    CCPoint naviCharaMarisaPos;
+    bool isNaviAnim;
+    bool isNaviChange;
+    
+    ItemDetailLayer();
+    virtual ~ItemDetailLayer();
+    virtual bool init(int idx, ListType type, PlanType plan);
+    static ItemDetailLayer* create(int idx, ListType type, PlanType plan);
+    
+    void update(float delta);
+    
+    //Touch
+    void registerWithTouchDispatcher();
+    bool ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
+    void ccTouchEnded(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
+    void ccTouchMoved(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
+
+    
+private:
+    PanelStatus infoPanelStatus;
+    PanelStatus contentsPanelStatus;
+    PanelStatus naviPanelStatus;
+    CCPoint infoClosePoint;
+    CCPoint infoOpenPoint;
+    CCPoint contentClosePoint;
+    CCPoint contentOpenPoint;
+    CCPoint naviClosePoint;
+    CCPoint naviOpenPoint;
+    CCPoint contentMenuPosition;
+    
+    
+    float adjustY;
+    float moveOffsetY;
+    
+    float detailCicrleWidth;
+    CCPoint detailImagePoint[3];
+    float detailImageWidth[3];
+    
+    float naviWidth;
+    CCPoint naviItemPoint[11];
+    float naviItemWidth[11];
+    
+    
+    void initData();
+    void initLayout();
+    void initInfoPanelMenu(bool withAction);
+    void initContentPanelMenu(bool withAction);
+    void initNaviPanelMenu(bool withAction);
+    void createDetailItem();
+    void createDetailItemImage(int idx, int tag);
+    void createDetailItemTitleText(int index, int tag);
+    void createDetailItemInfoText(int index, int tag);
+    void createDetailItemContentText(int index, int tag);
+    void createItemNavi();
+    void createItemNaviCommon(int idx, int tag, CCDictionary* dic);
+    void createItemNaviCommon2(int idx, int tag, CCDictionary* dic, CCSprite* sprite);
+    void removeBGTemp();
+    void panelManage(int panelType);
+    void changeInfoPanel();
+    void changeContentPanel();
+    void changeNaviPanel();
+    void effectNaviPanel();
+    void returnBgPosition();
+    void inline doBackGroundEffectInfo() { doBackGroundEffect(1); }
+    void doBackGroundEffectContent() { doBackGroundEffect(0); }
+    void doBackGroundEffectNavi() { doBackGroundEffect(2); }
+    void doBackGroundEffect(int bgType);
+    
+    void upFlick(cocos2d::CCTouch* pTouch);
+    void addBookmarkProcess();
+    void addBookmarkCalender();
+    void addBookMarkCallback();
+    void deleteBookmarkProcess();
+    void deleteBookMarkCallback();
+    void deleteBookMarkWithNoItemCallback();
+    
+    void buyItem();
+    void openSearch();
+    void openContentAll();
+    
+    void returnList();
+    void returnListReady();
+    
+    void animDetailItem(int tag, CCTouch* pTouch);
+    void animNaviItem(int tag, CCTouch* pTouch);
+    void animDetailItemTitle(float deg);
+    void changeNaviAnim();
+    bool isContain(CCString* value, int type);
+    
+    void panelFadeIn();
+    void panelFadeOut();
+    void panelStopAnimation();
+    
+    void openBookmarkInfo();
+};
+
+class ServerSyncLayer : public CCLayerColor
+{
+public:
+    
+    CCObject* m_pTarget;
+    SEL_CallFunc m_pCallfunc;
+
+    CCPoint startPos;
+    int labelIndex;
+    CCSize labelSize;
+    
+    ServerSyncLayer();
+    virtual ~ServerSyncLayer();
+    virtual bool init(CCObject* m_pTarget, SEL_CallFunc m_pCallfunc);
+    
+    static ServerSyncLayer* create(CCObject* m_pTarget, SEL_CallFunc m_pCallfunc);
+    
+    void addProcessMessage(CCString* str);
+    void addMessageCommon(CCString* str, bool isConsole);
+    
+    void noticeCreate();
+    
+    void closeSyncLayer();
+    
+private:
+    
+};
+
+class BgLayer : public CCLayerColor
+{
+public:
+    CC_SYNTHESIZE(bool, isClose, Close);
+    BgLayer();
+    virtual ~BgLayer();
+    virtual bool init();
+    static BgLayer* create();
+
+    //Touch
+    void registerWithTouchDispatcher();
+    bool ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
+    void ccTouchEnded(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
+    void ccTouchMoved(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
+    
+private:
+    void createTest(float delta);
+    void createTest2();
+    
+};
+
+class SettingLayer : public CCLayerColor
+{
+public:
+    CC_SYNTHESIZE(CCPoint, touchStart, TouchStart);
+    CC_SYNTHESIZE(bool, isClose, Close);
+    CC_SYNTHESIZE(bool, isPush, Push);
+    SettingLayer();
+    ~SettingLayer();
+    virtual bool init();
+    static SettingLayer* create();
+    void initLayout();
+    
+    void doFadeout();
+    void doFadein();
+
+    //Touch
+    void registerWithTouchDispatcher();
+    bool ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
+    void ccTouchEnded(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
+    void ccTouchMoved(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
+
+    
+private:
+    void switchPushSetting();
+    CCActionInterval* fadeInAction(int opacity);
+};
+
+class BookmarkInDetailLayer : public CCLayerColor
+{
+public:
+    CC_SYNTHESIZE(bool, isClose, Close);
+    CC_SYNTHESIZE_RETAIN(CCArray*, authors, Authors);
+    CC_SYNTHESIZE_RETAIN(CCArray*, creators, Creators);
+    
+    BookmarkInDetailLayer();
+    virtual ~BookmarkInDetailLayer();
+    virtual bool init(ViewItem* item);
+    static BookmarkInDetailLayer* create(ViewItem* item);
+    
+    //Touch
+    void registerWithTouchDispatcher();
+    bool ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
+    void ccTouchEnded(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
+    void ccTouchMoved(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
+    
+private:
+    void createContent(ViewItem* item);
+};
+
+
+
+#endif /* defined(__Ranotan2D__ItemViewScene__) */
